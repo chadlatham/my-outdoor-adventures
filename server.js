@@ -55,7 +55,6 @@ app.use((_req, res) => {
 });
 
 // Global error handler
-// eslint-disable-next-line max-params
 app.use((err, _req, res, _next) => {
   if (err.status) {
     return res
@@ -71,14 +70,12 @@ app.use((err, _req, res, _next) => {
       .send(err.message);
   }
 
-  // eslint-disable-next-line no-console
   console.error(err.stack);
   res.sendStatus(500);
 });
 
 module.exports = app.listen(port, () => {
   if (process.env.NODE_ENV !== 'test') {
-    // eslint-disable-next-line no-console
     console.log('Listening on port', port);
   }
 });
