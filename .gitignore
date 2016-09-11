@@ -1,3 +1,30 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Dependency directories
 node_modules
-dist
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Used by dotenv for creating local environment variables.
+.env
+
+# Ignore the local Postgres database directory.
 pg
+
+# Ignore the transpiled folder
+dist
+
+# Ignore .DS_Store files
+.DS_Store
