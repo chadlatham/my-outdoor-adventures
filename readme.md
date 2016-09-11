@@ -1,5 +1,9 @@
+#Skeleton for TypeScript, Webpack, and Angular2-rc6 with the following features:
 
-To get typings available for a project:
-typings "view" "dt~node" "--versions"
-
-"node": "registry:dt/node#6.0.0+20160831021119"6.0.0+20160831021119
+- Routing
+- Karma Testing
+- Express (Basic server created)
+- Postgres
+- Deployable to Heroku
+- Eslint for JavaScript files
+- TSlint for TypeScript files

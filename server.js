@@ -38,7 +38,7 @@ app.use(cookieParser());
 // Server the static resources (compiled in dist on deploy)
 app.use(express.static(path.join(__dirname, 'dist')));
 
-//CSRF protection (only JSON Accept headers to API routes)
+// CSRF protection (only JSON Accept headers to API routes)
 app.use('/api', (req, res, next) => {
   if (/json/.test(req.get('Accept'))) {
     return next();
@@ -55,6 +55,7 @@ app.use((_req, res) => {
 });
 
 // Global error handler
+// eslint-disable-next-line max-params
 app.use((err, _req, res, _next) => {
   if (err.status) {
     return res
@@ -66,16 +67,18 @@ app.use((err, _req, res, _next) => {
   if (err.output && err.output.statusCode) {
     return res
       .status(err.output.statusCode)
-      .set('Content-Type', responseType)
+      .set('Content-Type', 'text/plain')
       .send(err.message);
   }
 
+  // eslint-disable-next-line no-console
   console.error(err.stack);
   res.sendStatus(500);
 });
 
 module.exports = app.listen(port, () => {
   if (process.env.NODE_ENV !== 'test') {
+    // eslint-disable-next-line no-console
     console.log('Listening on port', port);
   }
 });

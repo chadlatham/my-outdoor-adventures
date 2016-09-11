@@ -15,8 +15,10 @@
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "heroku-postbuild": "knex migrate:latest; rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "knex": "knex",
+    "lint": "eslint --ext .js",
     "nf": "nf start",
     "postinstall": "typings install",
+    "resetdb": "knex migrate:rollback; knex migrate:latest; knex seed:run",
     "start": "webpack-dev-server --inline --progress --port 8080",
     "test": "karma start",
     "typings": "typings"
