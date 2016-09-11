@@ -7,4 +7,6 @@ import '../../public/css/styles.css';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent { }
+export class AppComponent {
+  title = 'NG2 Routing';
+}
