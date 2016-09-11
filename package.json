@@ -17,6 +17,7 @@
     "knex": "knex",
     "nf": "nf start",
     "postinstall": "typings install",
+    "preinstall": "npm install typings",
     "start": "webpack-dev-server --inline --progress --port 8080",
     "test": "karma start",
     "typings": "typings"
