@@ -19,7 +19,7 @@ Create Adventure page: Allows people to create their adventures (from result of 
 Settings page: Ability to change username / password / email / city / state
 
 ---------------------- Database ERD --------------------------------------------
-Relations: users, user_adventures, facilities, facility_images
+Relations: users, facilities, facility_images, user_adventures
 
 users:
   id: increments
@@ -28,6 +28,8 @@ users:
   deletedAt: timestamp, optional
   userName: varChar(255), unique, required
   hashedPassword: special 60chars
+  firstName: varChar(255), required
+  lastName: varChar(255), required
   email: varChar(255), unique, required
   hashedEmail: special 60chars
   emailVerifiedAt: timestamp, optional
@@ -75,7 +77,7 @@ facility_images:
   image_url: varchar(255)
   adventure_id: foreign key, optional!!!!!!!!!!
 
-user_adventures:
+users_facilities:
   id: increments
   user_id: foreign key, required
   facility_id: foreign key, required
@@ -259,3 +261,14 @@ axios.get('http://ipinfo.io')
   loc: '47.6102,-122.3043',
   org: 'AS6461 Zayo Bandwidth Inc',
   postal: '98122' }
+
+-------------- Default users ---------------------------------------------------
+// Unverified Email
+un: chadlatham
+pw: Test1234
+email: chadlatham33@gmail.com
+
+// Verified Email
+un: corypedersen
+pw: Test1234
+email: corypedersen@gmail.com
