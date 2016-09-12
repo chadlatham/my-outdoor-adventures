@@ -7,3 +7,4 @@
 - Deployable to Heroku
 - Eslint for JavaScript files
 - TSlint for TypeScript files
+- Angular Material 2 basics

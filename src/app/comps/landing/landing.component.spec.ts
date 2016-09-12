@@ -1,5 +1,5 @@
-import { TestBed } from '@angular/core/testing';
 import { LandingComponent } from './landing.component';
+import { TestBed } from '@angular/core/testing';
 
 describe('Landing', () => {
   beforeEach(() => {

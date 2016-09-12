@@ -10,5 +10,6 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   },
-  "compileOnSave": false
+  "compileOnSave": false,
+  "skipLibCheck": true
 }

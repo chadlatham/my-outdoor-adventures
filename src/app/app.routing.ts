@@ -1,5 +1,5 @@
 import { ModuleWithProviders }  from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 // Routed Components
 import { LandingComponent } from './comps/landing/landing.component';
@@ -8,16 +8,16 @@ import { MainComponent } from './comps/main/main.component';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/landing',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    redirectTo: '/landing'
   },
   {
-    path: 'landing',
-    component: LandingComponent
+    component: LandingComponent,
+    path: 'landing'
   },
   {
-    path: 'main',
-    component: MainComponent
+    component: MainComponent,
+    path: 'main'
   }
 ];
 

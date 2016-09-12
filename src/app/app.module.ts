@@ -1,8 +1,12 @@
 // Angular Modules
 import { NgModule } from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule }    from '@angular/http';
+import { BrowserModule }  from '@angular/platform-browser';
+
+// Angular Material Modules
+import { MdButtonModule } from '@angular2-material/button';
+import { MdCardModule } from '@angular2-material/card';
 
 // The Router Config
 import { routing } from './app.routing';
@@ -20,19 +24,21 @@ import { LandingComponent } from './comps/landing/landing.component';
 import { MainComponent } from './comps/main/main.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    routing
-  ],
+  bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
     LandingComponent,
     MainComponent
   ],
-  providers: [],
-  bootstrap: [ AppComponent ]
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    MdButtonModule,
+    MdCardModule,
+    routing
+  ],
+  providers: []
 })
 
 export class AppModule { }
