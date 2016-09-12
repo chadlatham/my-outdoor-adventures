@@ -14,7 +14,7 @@ exports.seed = function(knex) {
         first_name: 'Chad',
         last_name: 'Latham',
         email: 'chadlatham33@gmail.com',
-        hashed_email: '$2a$12$jilMGESJSVSqSifH04gaIu8YqbMPqj05.pYrYWH92bl78aoY3pPUK',
+        hashed_email: '$2a$12$jilMGESJSVSqSifH04gaIu8YqbMPqj05.pYrYWH92bl78aoY3pPUK'
       }, {
         id: 2,
         created_at: new Date('2016-09-11 00:00:00 UTC'),

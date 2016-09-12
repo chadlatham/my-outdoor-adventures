@@ -19,32 +19,32 @@ Create Adventure page: Allows people to create their adventures (from result of 
 Settings page: Ability to change username / password / email / city / state
 
 ---------------------- Database ERD --------------------------------------------
-Relations: users, facilities, facility_images, user_adventures
+Relations: users, facilities, adventures, facility_images
 
 users:
   id: increments
-  createdAt: timestamp, required
-  updatedAt: timestamp, required
-  deletedAt: timestamp, optional
-  userName: varChar(255), unique, required
-  hashedPassword: special 60chars
-  firstName: varChar(255), required
-  lastName: varChar(255), required
+  created_at: timestamp, required
+  updated_at: timestamp, required
+  deleted_at: timestamp, optional
+  user_name: varChar(255), unique, required
+  hashed_password: special 60chars
+  first_name: varChar(255), required
+  last_name: varChar(255), required
   email: varChar(255), unique, required
-  hashedEmail: special 60chars
-  emailVerifiedAt: timestamp, optional
+  hashed_email: special 60chars
+  email_verified_at: timestamp, optional
 
 facilities:
   id: increments
-  createdAt: timestamp, required
-  updatedAt: timestamp, required
-  deletedAt: timestamp, optional
+  created_at: timestamp, required
+  updated_at: timestamp, required
+  deleted_at: timestamp, optional
 
   // API Fields to store ----------
-  facility_id: required, unique - the foreign key in API results
+  ridb_facility_id: required, unique - the foreign key in API results
   facility_email: varchar(255)
-  facility_latitude: float
-  facility_longitude: float
+  facility_latitude: float [46.73527777777778 (17, 14)]
+  facility_longitude: float [-121.97027777777778 (17, 14)]
   facility_description: text
   facility_type_description: varchar(255)
   facility_phone: varchar(255)
@@ -68,6 +68,18 @@ facilities:
   postal_code: required, default to ''
   address_country_code: required, default to ''
 
+adventures:
+  id: increments
+  user_id: foreign key, required
+  facility_id: foreign key, required
+  created_at: timestamp, required
+  updated_at: timestamp, required
+  deleted_at: timestamp, optional
+  trip_from_date: timestamp, required
+  trip_to_date: timestamp, required
+  review_text: text, required,
+  recommend: boolean, required
+
 facility_images:
   id: increments
   facility_id: foreign key, required
@@ -76,16 +88,6 @@ facility_images:
   deletedAt: timestamp, optional
   image_url: varchar(255)
   adventure_id: foreign key, optional!!!!!!!!!!
-
-users_facilities:
-  id: increments
-  user_id: foreign key, required
-  facility_id: foreign key, required
-  createdAt: timestamp, required
-  updatedAt: timestamp, required
-  deletedAt: timestamp, optional
-  fromDate: timestamp, required
-  toDate: timestamp, required
 
 -------------------------- API's -----------------------------------------------
 RIDB - For campground information
@@ -261,6 +263,15 @@ axios.get('http://ipinfo.io')
   loc: '47.6102,-122.3043',
   org: 'AS6461 Zayo Bandwidth Inc',
   postal: '98122' }
+
+-------------- Cloudinary ------------------------------------------------------
+Image upload: https://api.cloudinary.com/v1_1/dizbvx6ti/image/upload
+Image retreival base url: https://res.cloudinary.com/dizbvx6ti
+API Key: 542455694988324
+API Secret: xdaHz3Gmc1Q1QA2sAjj4rsB68-s
+
+
+
 
 -------------- Default users ---------------------------------------------------
 // Unverified Email
