@@ -1,15 +1,15 @@
 {
-  "name": "ng2-webpack-heroku",
+  "name": "my-outdoor-adventures",
   "version": "0.1.0",
   "author": "Chad Latham",
   "contributors": [
     "Chad Latham chadlatham33@gmail.com"
   ],
-  "description": "Skeleton for Ng2, Webpack, Routing, Heroku, Express",
+  "description": "Angular 2-rc6 site for finding fun, high-quality campgrounds in your area.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chadlatham/ng2-webpack-heroku"
+    "url": "https://github.com/chadlatham/my-outdoor-adventures"
   },
   "scripts": {
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
@@ -19,7 +19,7 @@
     "nf": "nf start",
     "postinstall": "typings install",
     "resetdb": "knex migrate:rollback; knex migrate:latest; knex seed:run",
-    "start": "webpack-dev-server --inline --progress --port 8080",
+    "start": "nodemon server.js",
     "test": "karma start",
     "tslint": "tslint -c \"tslint.json\" -e \"node_modules/**/*\" -e \"typings/**/*\" \"**/*.+(ts|tsx)\"",
     "typings": "typings",
