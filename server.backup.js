@@ -8,7 +8,7 @@ if (isDeveloping) {
 
 const express = require('express');
 const path = require('path');
-const port = isDeveloping ? 3000 : process.env.PORT;
+const port = isDeveloping ? 8000 : process.env.PORT;
 
 // Require Middleware
 const morgan = require('morgan');
@@ -40,22 +40,8 @@ switch (app.get('env')) {
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-if (isDeveloping) {
-  // Serve the transpiled static files from memory
-  const webpack = require('webpack');
-  const webpackDevMiddleware = require('webpack-dev-middleware');
-  const config = require('./config/webpack.dev');
-  const compiler = webpack(config);
-
-  app.use(webpackDevMiddleware(compiler, {
-    publicPath: config.output.publicPath,
-    stats: { colors: true }
-  }));
-}
-else {
-  // Serve the static resources (compiled in dist on deploy)
-  app.use(express.static(path.join(__dirname, 'dist')));
-}
+// Server the static resources (compiled in dist on deploy)
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // CSRF protection (only JSON Accept headers to API routes)
 app.use('/api', (req, res, next) => {
