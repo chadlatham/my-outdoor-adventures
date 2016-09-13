@@ -14,7 +14,7 @@ exports.seed = function(knex) {
         first_name: 'Chad',
         last_name: 'Latham',
         email: 'chadlatham33@gmail.com',
-        hashed_email: '$2a$12$jilMGESJSVSqSifH04gaIu8YqbMPqj05.pYrYWH92bl78aoY3pPUK'
+        hashed_email: 'acc0831b7a53d9bdd52679a48229c7454f0f3358fe62c7aef98a14f2416fa14e'
       }, {
         id: 2,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -24,7 +24,7 @@ exports.seed = function(knex) {
         first_name: 'Jim',
         last_name: 'Pedersen',
         email: 'jp@gmail.com',
-        hashed_email: '$2a$12$we.vvjz9hnKevPSgdweev.COhotezoqZzX1A5IPY8E/8kMu/cSLDS',
+        hashed_email: '595f40b45b1ef44e1046e68a71b8d0b98801a29dcbb454ae927428a62537be2a',
         email_verified_at: new Date('2016-09-11 01:00:00 UTC')
       }, {
         id: 3,
@@ -35,7 +35,7 @@ exports.seed = function(knex) {
         first_name: 'Cory',
         last_name: 'Pedersen',
         email: 'corypedersen@gmail.com',
-        hashed_email: '$2a$12$BcTXp/urk5m7c7VWYSiJueTZsKD3UW0FmBiHINQFip78cQqyaw9v.',
+        hashed_email: '746603fdc6ad0b97922d4580e21c11769e8d5be70449c6d778a93919b8d921ea',
         email_verified_at: new Date('2016-09-11 01:00:00 UTC')
       }, {
         id: 4,
@@ -46,7 +46,7 @@ exports.seed = function(knex) {
         first_name: 'Gabriel',
         last_name: 'Jang',
         email: 'something@gmail.com',
-        hashed_email: '$2a$12$Xra5G7Eh2.4KUw9jtw933.58FLBxluqLM9.kY4ExiGNmlz8BRUI0.',
+        hashed_email: '2dae2ca599bcf7efde788c22101f57302ca3b47b16be1c1a2440e4f15820efdb',
         email_verified_at: new Date('2016-09-11 01:00:00 UTC')
       }, {
         id: 5,
@@ -57,7 +57,7 @@ exports.seed = function(knex) {
         first_name: 'ThisOne',
         last_name: 'Deleted',
         email: 'deleted@gmail.com',
-        hashed_email: '$2a$12$mUYxTkqUVRcqN29If722Uu2KgmrEXS5Zqt1sPTuEf5w9F3FcbJ5Mi',
+        hashed_email: '42073002110b168332a215e7ed3d693432315423d07ff195b963a48552bfbd93',
         email_verified_at: new Date('2016-09-11 01:00:00 UTC'),
         deleted_at: new Date('2016-09-11 02:00:00 UTC')
       }]);

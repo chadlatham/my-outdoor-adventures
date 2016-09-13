@@ -10,7 +10,7 @@ exports.up = function(knex) {
     table.string('first_name').notNullable().defaultTo('');
     table.string('last_name').notNullable().defaultTo('');
     table.string('email').unique().notNullable();
-    table.specificType('hashed_email', 'char(60)').notNullable();
+    table.specificType('hashed_email', 'char(64)').notNullable();
     table.timestamp('email_verified_at').nullable();
   });
 };

@@ -270,9 +270,6 @@ Image retreival base url: https://res.cloudinary.com/dizbvx6ti
 API Key: 542455694988324
 API Secret: xdaHz3Gmc1Q1QA2sAjj4rsB68-s
 
-
-
-
 -------------- Default users ---------------------------------------------------
 // Unverified Email
 un: chadlatham
@@ -283,3 +280,8 @@ email: chadlatham33@gmail.com
 un: corypedersen
 pw: Test1234
 email: corypedersen@gmail.com
+
+// Deleted User
+un: deleteduser
+pw: Test1234
+email: deleted@gmail.com
