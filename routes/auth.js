@@ -22,7 +22,7 @@ router.post('/auth', ev(val.post), (req, res, next) => {
     .then((row) => {
       user = camelizeKeys(row);
 
-      if (!user || user.deletedAt) {
+      if (!user || user.deletedAt || !user.emailVerifiedAt) {
         throw boom.unauthorized();
       }
 
