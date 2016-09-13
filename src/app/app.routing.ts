@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 // Routed Components
 import { LandingComponent } from './comps/landing/landing.component';
 import { MainComponent } from './comps/main/main.component';
+import { NotFoundComponent } from './comps/not-found/not-found.component';
 
 const appRoutes: Routes = [
   {
@@ -18,6 +19,10 @@ const appRoutes: Routes = [
   {
     component: MainComponent,
     path: 'main'
+  },
+  {
+    component: NotFoundComponent,
+    path: '**'
   }
 ];
 

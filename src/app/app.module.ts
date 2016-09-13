@@ -22,13 +22,15 @@ import { AppComponent } from './app.component';
 // My Components
 import { LandingComponent } from './comps/landing/landing.component';
 import { MainComponent } from './comps/main/main.component';
+import { NotFoundComponent } from './comps/not-found/not-found.component';
 
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
     LandingComponent,
-    MainComponent
+    MainComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
