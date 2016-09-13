@@ -20,11 +20,11 @@ router.post('/auth', ev(val.post), (req, res, next) => {
     .where('user_name', userName)
     .first()
     .then((row) => {
-      if (!row || row.deleted) {
+      user = camelizeKeys(row);
+
+      if (!user || user.deletedAt) {
         throw boom.unauthorized();
       }
-
-      user = camelizeKeys(row);
 
       return bcrypt.compare(password, user.hashedPassword);
     })
