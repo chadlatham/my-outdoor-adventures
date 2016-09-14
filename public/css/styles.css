@@ -6,3 +6,7 @@ body {
 .nav-wrapper {
   background-image: url('../images/camping.jpeg');
 }
+
+nav .nav-wrapper {
+  height: 200px;
+}
