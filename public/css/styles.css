@@ -2,3 +2,8 @@ body {
     background: #0147A7;
     color: #fff;
 }
+
+.nav-wrapper {
+  background-image: url('../images/camping.jpeg');
+}
+/*require("../../public/images/camping.jpeg")*/
