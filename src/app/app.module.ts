@@ -12,6 +12,7 @@ import { MdCardModule } from '@angular2-material/card';
 import { routing } from './app.routing';
 
 // 3rd Party Modules
+import {MaterializeDirective} from "angular2-materialize";
 import './rxjs-extensions';
 
 // My Services
@@ -20,17 +21,29 @@ import './rxjs-extensions';
 import { AppComponent } from './app.component';
 
 // My Components
-import { LandingComponent } from './comps/landing/landing.component';
-import { MainComponent } from './comps/main/main.component';
+import { AdventurerComponent } from './comps/adventurer/adventurer.component';
+import { CampgroundComponent } from './comps/campground/campground.component';
+import { LoginComponent } from './comps/login/login.component';
+import { NewAdventureComponent } from
+  './comps/new-adventure/new-adventure.component';
 import { NotFoundComponent } from './comps/not-found/not-found.component';
+import { RegisterComponent } from './comps/register/register.component';
+import { SearchComponent } from './comps/search/search.component';
+import { SettingsComponent } from './comps/settings/settings.component';
 
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    LandingComponent,
-    MainComponent,
-    NotFoundComponent
+    AdventurerComponent,
+    CampgroundComponent,
+    LoginComponent,
+    MaterializeDirective,
+    NewAdventureComponent,
+    NotFoundComponent,
+    RegisterComponent,
+    SearchComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

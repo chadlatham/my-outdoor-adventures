@@ -1,5 +1,5 @@
 import '../../public/css/styles.css';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -7,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html'
 })
 
-export class AppComponent implements OnInit { // tslint:disable-line
+export class AppComponent implements AfterViewChecked { // tslint:disable-line
 
   // tslint:disable-next-line:no-unused-variable
-  private title = 'NG2 Routing';
+  private title = 'My Outdoor Adventures';
 
   // Lifecycle hooks
-  ngOnInit() {
-    console.log('AppComponent init'); // tslint:disable-line
-    // Materialize.toast('test', 3000);
+  ngAfterViewChecked() {
+    console.log('AppComponent AfterViewChecked'); // tslint:disable-line
+    // Materialize.toast('test', 3000); // tslint:disable-line
   }
 
 }

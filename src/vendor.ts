@@ -17,6 +17,14 @@ import 'rxjs';
 
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
-// import "jquery";
-// import 'materialize-css/dist/css/materialize.min.css';
-// import 'materialize-css/dist/js/materialize.min.js';
+// const jQuery = require('jquery');
+import 'jquery';
+// require(materialize-css/dist/js/materialize.min.js);
+import 'materialize-css/bin/materialize.css';
+import 'materialize-css/bin/materialize.js';
+
+// Materialize CSS
+// import "materialize-css";
+
+// Angular 2 Materialize Directives
+import "angular2-materialize";
