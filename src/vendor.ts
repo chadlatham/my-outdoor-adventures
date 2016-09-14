@@ -17,7 +17,6 @@ import 'rxjs';
 
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
- // <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-import 'jquery';
-import 'materialize-css/dist/css/materialize.min.css';
-import 'materialize-css/dist/js/materialize.min.js';
+// import "jquery";
+// import 'materialize-css/dist/css/materialize.min.css';
+// import 'materialize-css/dist/js/materialize.min.js';
