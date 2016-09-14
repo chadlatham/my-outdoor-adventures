@@ -1,6 +1,11 @@
-<h1>{{title}}</h1>
 <nav>
-  <a routerLink="/landing" routerLinkActive="active">Landing</a>
-  <a routerLink="/main" routerLinkActive="active">Main</a>
+  <div class="nav-wrapper">
+    <a class="brand-logo" routerLink="/landing" routerLinkActive="active">{{title}}</a>
+    <!-- <a href="#" class="brand-logo">{{title}}</a> -->
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a routerLink="/landing" routerLinkActive="active">Landing</a></li>
+      <li><a routerLink="/main" routerLinkActive="active">Main</a></li>
+    </ul>
+  </div>
 </nav>
 <router-outlet></router-outlet>

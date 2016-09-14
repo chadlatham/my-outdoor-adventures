@@ -6,9 +6,19 @@ if (isDeveloping) {
   require('dotenv').config({ silent: true });
 }
 
+// Necessary for webpack SPA developer mode
+const request = require('request-promise');
+
 const express = require('express');
 const path = require('path');
 const port = isDeveloping ? 3000 : process.env.PORT;
+
+// Webpack Requires
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const config = require('./config/webpack.dev');
+const compiler = webpack(config);
 
 // Require Middleware
 const morgan = require('morgan');
@@ -42,14 +52,13 @@ app.use(cookieParser());
 
 if (isDeveloping) {
   // Serve the transpiled static files from memory
-  const webpack = require('webpack');
-  const webpackDevMiddleware = require('webpack-dev-middleware');
-  const config = require('./config/webpack.dev');
-  const compiler = webpack(config);
-
   app.use(webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
     stats: { colors: true }
+  }));
+
+  app.use(webpackHotMiddleware(compiler, {
+    log: console.log // eslint-disable-line
   }));
 }
 else {
@@ -70,9 +79,16 @@ app.use('/api', (req, res, next) => {
 app.use('/api', auth);
 
 // Page not found handler (for push-state serving of SPA)
-app.use((_req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+if (isDeveloping) {
+  app.use((_req, res) => {
+    request('http://localhost:3000/index.html').pipe(res);
+  });
+}
+else {
+  app.use((_req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  });
+}
 
 // Global error handler
 // eslint-disable-next-line max-params

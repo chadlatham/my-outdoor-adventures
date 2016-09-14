@@ -1,5 +1,5 @@
 import '../../public/css/styles.css';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -7,7 +7,15 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit { // tslint:disable-line
+
   // tslint:disable-next-line:no-unused-variable
   private title = 'NG2 Routing';
+
+  // Lifecycle hooks
+  ngOnInit() {
+    console.log('AppComponent init'); // tslint:disable-line
+    // Materialize.toast('test', 3000);
+  }
+
 }

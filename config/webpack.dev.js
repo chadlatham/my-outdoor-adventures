@@ -5,9 +5,17 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
+    // 'polyfills': './src/polyfills.ts',
+    // 'vendor': './src/vendor.ts',
+    // 'app': './src/main.ts'
+
+    // 'polyfills': ['./src/polyfills.ts', 'webpack/hot/dev-server',    'webpack-hot-middleware/client'],
+    // 'vendor': ['./src/vendor.ts', 'webpack/hot/dev-server',    'webpack-hot-middleware/client'],
+    // 'app': ['./src/main.ts', 'webpack/hot/dev-server',    'webpack-hot-middleware/client']
+
+    'polyfills': ['./src/polyfills.ts', 'webpack-hot-middleware/client'],
+    'vendor': ['./src/vendor.ts', 'webpack-hot-middleware/client'],
+    'app': ['./src/main.ts', 'webpack-hot-middleware/client']
   },
 
   resolve: {
@@ -51,10 +59,13 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
-    }),
+      name: ['vendor', 'app', 'polyfills']
+    })
   ]
 };
