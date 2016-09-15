@@ -24,6 +24,10 @@ module.exports = {
         test: /\.html$/,
         loader: 'html'
       },
+      // For angular2-material
+      { test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
+        loader: 'url-loader?limit=100000'
+      },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico|jpg)$/,
         loader: 'file?name=assets/[name].[hash].[ext]'
@@ -48,6 +52,13 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: 'src/index.html'
+    })
+
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+      Hammer: "hammerjs/hammer"
     })
   ]
 };

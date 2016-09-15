@@ -12,7 +12,7 @@ import { MdCardModule } from '@angular2-material/card';
 import { routing } from './app.routing';
 
 // 3rd Party Modules
-import {MaterializeDirective} from "angular2-materialize";
+import { MaterializeDirective } from "angular2-materialize";
 import './rxjs-extensions';
 
 // My Services
@@ -20,7 +20,7 @@ import './rxjs-extensions';
 // Bootstrapped Routing Component
 import { AppComponent } from './app.component';
 
-// My Components
+// My Routed Components
 import { AdventurerComponent } from './comps/adventurer/adventurer.component';
 import { CampgroundComponent } from './comps/campground/campground.component';
 import { LoginComponent } from './comps/login/login.component';
@@ -30,6 +30,12 @@ import { NotFoundComponent } from './comps/not-found/not-found.component';
 import { RegisterComponent } from './comps/register/register.component';
 import { SearchComponent } from './comps/search/search.component';
 import { SettingsComponent } from './comps/settings/settings.component';
+
+// My Non-Routed Components
+import { SearchCampsComponent } from
+  './comps/search-camps/search-camps.component';
+  import { SearchResultsComponent } from
+    './comps/search-results/search-results.component';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -43,6 +49,8 @@ import { SettingsComponent } from './comps/settings/settings.component';
     NotFoundComponent,
     RegisterComponent,
     SearchComponent,
+    SearchCampsComponent,
+    SearchResultsComponent,
     SettingsComponent
   ],
   imports: [

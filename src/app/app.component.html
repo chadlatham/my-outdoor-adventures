@@ -1,12 +1,51 @@
-<nav>
-  <div class="nav-wrapper">
-    <a class="brand-logo" routerLink="/search">{{title}}</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a routerLink="/search" routerLinkActive="active">Search</a></li>
-      <li>
-        <a routerLink="/campground" routerLinkActive="active">Campground</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<div class="navbar-fixed" [@navAnimation]="navState">
+  <nav [@navAnimation]="navState">
+    <div class="nav-wrapper">
+      <a class="brand-logo" routerLink="/search">{{title}}</a>
+      <a data-activates="side-nav" class="button-collapse" materialize="sideNav" [materializeParams]="[{
+            menuWidth: 300,
+            edge: 'left',
+            closeOnClick: true
+          }]">
+        <i class="material-icons">menu</i>
+      </a>
+
+      <!-- The Nav Bar -->
+      <ul id="nav-bar" class="right hide-on-med-and-down blue-text">
+        <!-- [@navButtonAnimation]="getNavState()" -->
+        <li >
+          <a routerLink="/search" routerLinkActive="active">
+            <i class="material-icons left">search</i>
+            Campgrounds
+          </a>
+        </li>
+        <li>
+          <a routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li>
+          <a routerLink="/register" routerLinkActive="active">Register</a>
+        </li>
+        <li>
+          <a routerLink="/settings" routerLinkActive="active">
+            <i class="material-icons">settings</i>
+          </a>
+        </li>
+      </ul>
+
+      <!-- The Side Nav -->
+      <ul class="side-nav" id="side-nav">
+        <li>
+          <a routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li>
+          <a routerLink="/register" routerLinkActive="active">Register</a>
+        </li>
+        <li>
+          <a routerLink="/settings" routerLinkActive="active">Settings</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+</div>
 <router-outlet></router-outlet>

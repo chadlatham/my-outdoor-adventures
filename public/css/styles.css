@@ -1,12 +1,41 @@
-body {
-    background: #0147A7;
-    color: #fff;
+.navbar-fixed nav {
+  background-image: url('../images/camping-nav.jpg');
+  background-size: cover;
+  border-bottom: 10px solid green;
+  margin-bottom: 10px;
 }
 
-.nav-wrapper {
-  background-image: url('../images/camping.jpeg');
+nav .brand-logo {
+  color: green;
 }
 
-nav .nav-wrapper {
-  height: 200px;
+.active {
+  color: red;
+}
+
+main {
+  height: 150vh;
+}
+
+/*Global media queries*/
+
+@media only screen and (min-width: 0) {
+  nav, nav .nav-wrapper, .navbar-fixed {
+    /*height: 200px;*/
+    line-height: 64px;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  nav, nav .nav-wrapper, .navbar-fixed {
+    /*height: 200px;*/
+    line-height: 64px;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  nav, nav .nav-wrapper, .navbar-fixed {
+    /*height: 200px;*/
+    line-height: 64px;
+  }
 }

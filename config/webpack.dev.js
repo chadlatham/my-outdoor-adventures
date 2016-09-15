@@ -32,6 +32,10 @@ module.exports = {
         test: /\.html$/,
         loader: 'html'
       },
+      // For angular2-material
+      // { test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
+      //   loader: 'url-loader?limit=100000'
+      // },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico|jpg)$/,
         loader: 'file?name=assets/[name].[hash].[ext]'
@@ -59,13 +63,25 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new ExtractTextPlugin('[name].css'),
-    new HtmlWebpackPlugin({ template: 'src/index.html' }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor', 'app', 'polyfills']
+      name: ['app', 'vendor', 'polyfills']
+    }),
+
+    new HtmlWebpackPlugin({ template: 'src/index.html' }),
+
+    new webpack.HotModuleReplacementPlugin(),
+
+    // new webpack.optimize.OccurenceOrderPlugin(),
+
+    new webpack.NoErrorsPlugin(),
+
+    new ExtractTextPlugin('[name].css'),
+
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+      Hammer: "hammerjs/hammer"
     })
   ]
 };
