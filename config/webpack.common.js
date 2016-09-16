@@ -25,9 +25,9 @@ module.exports = {
         loader: 'html'
       },
       // For angular2-material
-      { test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
-        loader: 'url-loader?limit=100000'
-      },
+      // { test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
+      //   loader: 'url-loader?limit=100000'
+      // },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico|jpg)$/,
         loader: 'file?name=assets/[name].[hash].[ext]'
