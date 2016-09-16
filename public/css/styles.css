@@ -21,21 +21,18 @@ main {
 
 @media only screen and (min-width: 0) {
   nav, nav .nav-wrapper, .navbar-fixed {
-    /*height: 200px;*/
     line-height: 64px;
   }
 }
 
 @media only screen and (min-width: 601px) {
   nav, nav .nav-wrapper, .navbar-fixed {
-    /*height: 200px;*/
     line-height: 64px;
   }
 }
 
 @media only screen and (min-width: 993px) {
   nav, nav .nav-wrapper, .navbar-fixed {
-    /*height: 200px;*/
     line-height: 64px;
   }
 }
