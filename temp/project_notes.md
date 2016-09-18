@@ -252,17 +252,25 @@ facilities/:id/media - sample response
    { SEARCH_PARAMETERS: { QUERY: '', OFFSET: 0, LIMIT: 50, FACILITYID: 234086 },
      RESULTS: { TOTAL_COUNT: 5, CURRENT_COUNT: 5 } } }
 
------------- Samples from IPInfo.com -------------------------------------------
-axios.get('http://ipinfo.io')
+------------ Samples from ip-api.com -------------------------------------------
+axios.get('http://ip-api.com/json')
 
-{ ip: '64.125.192.130',
-  hostname: '64.125.192.130.IPYX-103772-ZYO.zip.zayo.com',
-  city: 'Seattle',
-  region: 'Washington',
-  country: 'US',
-  loc: '47.6102,-122.3043',
-  org: 'AS6461 Zayo Bandwidth Inc',
-  postal: '98122' }
+{
+  as: "AS7922 Comcast Cable Communications, LLC",
+  city: "Tacoma",
+  country: "United States",
+  countryCode: "US",
+  isp: "Comcast Cable",
+  lat: 47.198,
+  lon: -122.4473,
+  org: "Comcast Cable",
+  query: "98.237.171.225",
+  region: "WA",
+  regionName: "Washington",
+  status: "success",
+  timezone: "America/Los_Angeles",
+  zip: "98408"
+}
 
 -------------- Cloudinary ------------------------------------------------------
 Image upload: https://api.cloudinary.com/v1_1/dizbvx6ti/image/upload

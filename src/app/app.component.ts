@@ -54,12 +54,12 @@ export class AppComponent implements OnInit { // tslint:disable-line
     this.ipInfo = {};
   }
 
+  // Lifecycle Hooks
   ngOnInit() {
     console.log('AppComponent: ngOnInit'); // tslint:disable-line
     this.ipInfoService.getIpInfo()
       .then((ipInfo: any) => {
         this.ipInfo = ipInfo;
-        console.log(ipInfo); // tslint:disable-line
       })
       .catch((err: any) => {
         console.log(err); // tslint:disable-line
@@ -88,8 +88,6 @@ export class AppComponent implements OnInit { // tslint:disable-line
       this.navState = 'collapsed';
     }
   }
-
-  // Lifecycle Hooks
 
   // Private Methods
 }

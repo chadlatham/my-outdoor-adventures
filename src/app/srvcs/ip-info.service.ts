@@ -1,24 +1,24 @@
 import { Injectable }     from '@angular/core';
 import {
-  Headers,
+  // Headers,
   Http,
-  RequestOptions,
+  // RequestOptions,
   Response } from '@angular/http';
 
 @Injectable()
 export class IpInfoService {
   private ipInfoUrl: string;
-  private headers: Headers;
-  private options: RequestOptions;
+  // private headers: Headers;
+  // private options: RequestOptions;
 
   constructor (private http: Http) {
-    this.ipInfoUrl = 'http://ipinfo.io'; // URL to web API
-    this.headers = new Headers({ 'Content-Type': 'application/json' });
-    this.options = new RequestOptions({ headers: this.headers });
+    this.ipInfoUrl = 'http://ip-api.com/json'; // URL to web API
+    // this.headers = new Headers({ 'Content-Type': 'application/json' });
+    // this.options = new RequestOptions({ headers: this.headers });
   }
 
   public getIpInfo (): Promise<any> {
-    return this.http.get(this.ipInfoUrl, this.options)
+    return this.http.get(this.ipInfoUrl)
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
@@ -26,7 +26,7 @@ export class IpInfoService {
 
   private extractData(res: Response) {
     let body = res.json();
-    return body.data || {};
+    return body.data || body || {};
   }
 
   private handleError (error: any) {
