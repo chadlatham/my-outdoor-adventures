@@ -19,9 +19,6 @@ import {
   // RouterStateSnapshot
 } from '@angular/router';
 
-// Custom Services
-import { IpInfoService } from './srvcs/ip-info.service';
-
 declare const $: any;
 declare const Materialize: any;
 
@@ -44,26 +41,17 @@ declare const Materialize: any;
 
 export class AppComponent implements OnInit { // tslint:disable-line
 
-  public ipInfo: any;
   private navState: string;
   private title: string;
 
-  constructor(private ipInfoService: IpInfoService, private router: Router) {
+  constructor(private router: Router) {
     this.title = 'My Outdoor Adventures';
     this.navState = 'expanded';
-    this.ipInfo = {};
   }
 
   // Lifecycle Hooks
   ngOnInit() {
     console.log('AppComponent: ngOnInit'); // tslint:disable-line
-    this.ipInfoService.getIpInfo()
-      .then((ipInfo: any) => {
-        this.ipInfo = ipInfo;
-      })
-      .catch((err: any) => {
-        console.log(err); // tslint:disable-line
-      });
   }
 
   // Event Listeners

@@ -13,22 +13,24 @@
         <input class="brown-text lighten-2"
           id="city"
           name="city"
+          placeholder="City near your destination"
           type="text"
-          [class.valid]="city.valid && city.touched"
-          [class.invalid]="!city.valid && city.touched"
+          [class.valid]="myForm.controls['city'].valid && myForm.controls['city'].touched"
+          [class.invalid]="!myForm.controls['city'].valid && myForm.controls['city'].touched"
           [formControl]="myForm.controls['city']"
-          (click)="logVars()"
+          [(ngModel)]="city"
         />
-        <div *ngIf="city.hasError('required') && city.touched"
+        <div *ngIf="myForm.controls['city'].hasError('required') && myForm.controls['city'].touched"
            class="error-message">City is required</div>
       </div>
 
       <div class="input-field">
         <select class="brown-text lighten-2"
           materialize="material_select"
-          [materializeSelectOptions]="states"
           name="state"
           [formControl]="myForm.controls['state']"
+          [materializeSelectOptions]="states"
+          [(ngModel)]="state"
         >
           <option
             *ngFor="let state of states"
@@ -43,6 +45,7 @@
           materialize="material_select"
           name="radius"
           [formControl]="myForm.controls['radius']"
+          [(ngModel)]="radius"
         >
           <option value="50">50 miles</option>
           <option value="100">100 miles</option>
@@ -58,8 +61,11 @@
         <input class="brown-text lighten-2"
           id="name"
           name="name"
+          placeholder="Name of a campground"
           type="text"
-          [formControl]="myForm.controls['name']"/>
+          [formControl]="myForm.controls['name']"
+          [(ngModel)]="name"
+        />
       </div>
 
       <div class="sort-row">
@@ -68,17 +74,19 @@
           id="sb-name"
           name="sortby"
           type="radio"
-          [formControl]="myForm.controls['sortby']"
-          [checked]="true"
           value="name"
+          [checked]="true"
+          [formControl]="myForm.controls['sortby']"
+          [(ngModel)]="sortby"
         />
         <label for="sb-name">Name</label>
         <input
           id="sb-distance"
           name="sortby"
           type="radio"
-          [formControl]="myForm.controls['sortby']"
           value="distance"
+          [formControl]="myForm.controls['sortby']"
+          [(ngModel)]="sortby"
         />
         <label for="sb-distance">Distance</label>
       </div>
