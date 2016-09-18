@@ -252,24 +252,21 @@ facilities/:id/media - sample response
    { SEARCH_PARAMETERS: { QUERY: '', OFFSET: 0, LIMIT: 50, FACILITYID: 234086 },
      RESULTS: { TOTAL_COUNT: 5, CURRENT_COUNT: 5 } } }
 
------------- Samples from ip-api.com -------------------------------------------
-axios.get('http://ip-api.com/json')
+------------ Samples from freegeoip.net ----------------------------------------
+axios.get('https://freegeoip.net/json')
 
 {
-  as: "AS7922 Comcast Cable Communications, LLC",
-  city: "Tacoma",
-  country: "United States",
-  countryCode: "US",
-  isp: "Comcast Cable",
-  lat: 47.198,
-  lon: -122.4473,
-  org: "Comcast Cable",
-  query: "98.237.171.225",
-  region: "WA",
-  regionName: "Washington",
-  status: "success",
-  timezone: "America/Los_Angeles",
-  zip: "98408"
+  "ip": "98.237.171.225",
+  "country_code": "US",
+  "country_name": "United States",
+  "region_code": "WA",
+  "region_name": "Washington",
+  "city": "Tacoma",
+  "zip_code": "98408",
+  "time_zone": "America/Los_Angeles",
+  "latitude": 47.198,
+  "longitude": -122.4473,
+  "metro_code": 819
 }
 
 -------------- Cloudinary ------------------------------------------------------

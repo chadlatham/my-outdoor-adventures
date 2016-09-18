@@ -12,7 +12,7 @@ export class IpInfoService {
   // private options: RequestOptions;
 
   constructor(private http: Http) {
-    this.url = 'http://ip-api.com/json'; // URL to web API
+    this.url = 'https://freegeoip.net/json'; // URL to geolocation API
     // this.headers = new Headers({ 'Content-Type': 'application/json' });
     // this.options = new RequestOptions({ headers: this.headers });
   }
