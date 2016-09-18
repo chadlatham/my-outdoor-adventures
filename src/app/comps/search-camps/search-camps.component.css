@@ -1,0 +1,13 @@
+.card-panel {
+  border-radius: 5px;
+  padding: 0;
+}
+
+.sort-row {
+  margin-top: 10px;
+}
+
+md-toolbar {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}

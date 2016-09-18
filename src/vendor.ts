@@ -26,3 +26,5 @@ import 'materialize-css';
 
 // Angular 2 Materialize Directives
 import 'angular2-materialize';
+
+// import 'ng2-bootstrap';

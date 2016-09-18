@@ -1,12 +1,18 @@
 // Angular Modules
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 import { BrowserModule }  from '@angular/platform-browser';
 
 // Angular Material Modules
 import { MdButtonModule } from '@angular2-material/button';
 import { MdCardModule } from '@angular2-material/card';
+import { MdInputModule } from '@angular2-material/input';
+import { MdToolbarModule } from '@angular2-material/toolbar';
+
+// Angular 2 Bootstrap Modules
+import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 // The Router Config
 import { routing } from './app.routing';
@@ -16,6 +22,7 @@ import { MaterializeDirective } from "angular2-materialize";
 import './rxjs-extensions';
 
 // My Services
+import { IpInfoService } from './srvcs/ip-info.service';
 
 // Bootstrapped Routing Component
 import { AppComponent } from './app.component';
@@ -54,14 +61,22 @@ import { SearchCampsComponent } from
     SettingsComponent
   ],
   imports: [
+    AlertModule,
     BrowserModule,
+    DatepickerModule,
     FormsModule,
     HttpModule,
     MdButtonModule,
     MdCardModule,
+    MdInputModule,
+    MdToolbarModule,
+    Ng2BootstrapModule,
+    ReactiveFormsModule,
     routing
   ],
-  providers: []
+  providers: [
+    IpInfoService
+  ],
 })
 
 export class AppModule { }

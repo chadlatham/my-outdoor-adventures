@@ -15,3 +15,10 @@ Good Morning @group!:sunny: Partnership Manager Daniel Butts and I are looking t
 Chad Latham's Capstone Project:
 Title: My Outdoor Adventures
 Description: An Angular 2 website that provides campground search, trip stories, photo upload, and campground rating ability.
+
+const axiosConfig = {
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  }
+}

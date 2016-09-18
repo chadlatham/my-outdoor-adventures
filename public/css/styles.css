@@ -1,7 +1,8 @@
 .navbar-fixed nav {
   background-image: url('../images/camping-nav.jpg');
   background-size: cover;
-  border-bottom: 10px solid green;
+  /*light-green darken-3*/
+  border-bottom: 10px solid #558b2f;
   margin-bottom: 10px;
 }
 
@@ -10,15 +11,20 @@ nav .brand-logo {
 }
 
 .active {
-  color: red;
+  /*orange darken-4*/
+  color: #e65100;
+  font-size: 1.25rem;
+}
+
+html {
+  min-height: 150vh;
 }
 
 main {
-  height: 150vh;
+  margin: 4px 0 0 0;
 }
 
 /*Global media queries*/
-
 @media only screen and (min-width: 0) {
   nav, nav .nav-wrapper, .navbar-fixed {
     line-height: 64px;
@@ -35,4 +41,107 @@ main {
   nav, nav .nav-wrapper, .navbar-fixed {
     line-height: 64px;
   }
+}
+
+/*Materialize Overrides!!!!!!!!!!!*/
+/*Limit the size of the select dropdown*/
+.dropdown-content.select-dropdown.active, .dropdown-content.select-dropdown {
+  max-height: 200px;
+}
+
+/* label color */
+.input-field label {
+ /*color: #000;*/
+}
+
+/* label focus color */
+.input-field label.active {
+  /*brown lighten-2*/
+ color: #a1887f;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  /*brown lighten-2*/
+ color: #a1887f;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  /*brown lighten-2*/
+  border-bottom: 1px solid #a1887f;
+  box-shadow: 0 1px 0 0 #a1887f;
+}
+/* valid color */
+.input-field input[type=text].valid {
+ /*border-bottom: 1px solid #000;*/
+ /*box-shadow: 0 1px 0 0 #000;*/
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+ /*border-bottom: 1px solid #000;*/
+ /*box-shadow: 0 1px 0 0 #000;*/
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+ /*color: #000;*/
+}
+
+ul.select-dropdown.active li:not(:first-child) span {
+  color: #a1887f;
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+  margin-bottom: 0;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]) {
+  /*border-bottom: none;
+  box-shadow: none;*/
+}
+
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not:([readonly]) {
+  /*border-bottom: none;
+  box-shadow: none;*/
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+  /*height: auto;*/
+}
+
+/*Changing the height of moving labels*/
+.input-field label.active::after {
+  /*transform: none;*/
+}
+
+/*Radio button color overrides*/
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+  /*light-green darken-3*/
+  background-color: #558b25
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+  /*light-green darken-3*/
+  border: 2px solid #558b25
+}
+/*End Materialize Overrides!!!!!!!!!!!!*/
+
+.btn-row {
+  margin-top: 20px;
+}
+
+.error-message {
+  font-size: .8rem;
+  font-color: #f44336;
 }

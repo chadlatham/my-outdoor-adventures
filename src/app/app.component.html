@@ -1,7 +1,7 @@
 <div class="navbar-fixed" [@navAnimation]="navState">
   <nav [@navAnimation]="navState" class="green darken-4">
     <div class="nav-wrapper">
-      <a class="brand-logo" routerLink="/search">{{title}}</a>
+      <a class="brand-logo white-text" routerLink="/search">{{title}}</a>
       <a data-activates="side-nav" class="button-collapse" materialize="sideNav" [materializeParams]="[{
             menuWidth: 300,
             edge: 'left',
@@ -33,7 +33,7 @@
       </ul>
 
       <!-- The Side Nav -->
-      <ul class="side-nav" id="side-nav">
+      <ul class="side-nav grey lighten-1" id="side-nav">
         <li>
           <a routerLink="/login" routerLinkActive="active">Login</a>
         </li>

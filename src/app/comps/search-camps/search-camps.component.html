@@ -1,1 +1,98 @@
-<h1>Search Camps</h1>
+<div class="card-panel">
+  <md-toolbar class="light-green darken-3 white-text">Find Campgrounds
+  </md-toolbar>
+<!-- <input #searchBox id="search-box" (keyup)="search(searchBox.value)" /> -->
+  <div class="row">
+
+    <form class="col s12"
+      [formGroup]="myForm"
+      (ngSubmit)="onSubmit(myForm.value)"
+    >
+      <div class="input-field">
+        <label for="city">City</label>
+        <input class="brown-text lighten-2"
+          id="city"
+          name="city"
+          type="text"
+          [class.valid]="city.valid && city.touched"
+          [class.invalid]="!city.valid && city.touched"
+          [formControl]="myForm.controls['city']"
+          (click)="logVars()"
+        />
+        <div *ngIf="city.hasError('required') && city.touched"
+           class="error-message">City is required</div>
+      </div>
+
+      <div class="input-field">
+        <select class="brown-text lighten-2"
+          materialize="material_select"
+          [materializeSelectOptions]="states"
+          name="state"
+          [formControl]="myForm.controls['state']"
+        >
+          <option
+            *ngFor="let state of states"
+            [value]="state">{{state}}
+          </option>
+        </select>
+        <label>State</label>
+      </div>
+
+      <div class="input-field">
+        <select class="brown-text lighten-2"
+          materialize="material_select"
+          name="radius"
+          [formControl]="myForm.controls['radius']"
+        >
+          <option value="50">50 miles</option>
+          <option value="100">100 miles</option>
+          <option value="200">200 miles</option>
+          <option value="300">300 miles</option>
+          <option value="500">500 miles</option>
+        </select>
+        <label>Radius</label>
+      </div>
+
+      <div class="input-field">
+        <label for="name">Camp Name</label>
+        <input class="brown-text lighten-2"
+          id="name"
+          name="name"
+          type="text"
+          [formControl]="myForm.controls['name']"/>
+      </div>
+
+      <div class="sort-row">
+        <span>Sort by:</span>
+        <input
+          id="sb-name"
+          name="sortby"
+          type="radio"
+          [formControl]="myForm.controls['sortby']"
+          [checked]="true"
+          value="name"
+        />
+        <label for="sb-name">Name</label>
+        <input
+          id="sb-distance"
+          name="sortby"
+          type="radio"
+          [formControl]="myForm.controls['sortby']"
+          value="distance"
+        />
+        <label for="sb-distance">Distance</label>
+      </div>
+
+      <div class="row btn-row">
+        <button class="btn btn-default light-green darken-3 white-text"
+          type="submit"
+          [disabled]="!myForm.valid"
+        >
+          <i class="material-icons left">search</i>
+          Search
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
