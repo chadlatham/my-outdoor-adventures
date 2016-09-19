@@ -3,6 +3,7 @@
 const Joi = require('joi');
 
 module.exports.post = {
+  options: { allowUnknownBody: false },
   body: {
     userName: Joi.string()
       .label('User Name')

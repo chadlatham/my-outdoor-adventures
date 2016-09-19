@@ -3,7 +3,7 @@
     <div class="nav-wrapper">
       <a class="brand-logo white-text" routerLink="/search">{{title}}</a>
       <a data-activates="side-nav" class="button-collapse" materialize="sideNav" [materializeParams]="[{
-            menuWidth: 300,
+            menuWidth: 200,
             edge: 'left',
             closeOnClick: true
           }]">
@@ -19,13 +19,21 @@
             Campgrounds
           </a>
         </li>
-        <li>
+        <li *ngIf="!authService.loggedIn.userId">
           <a routerLink="/login" routerLinkActive="active">Login</a>
         </li>
-        <li>
+        <li *ngIf="!authService.loggedIn.userId">
           <a routerLink="/register" routerLinkActive="active">Register</a>
         </li>
-        <li>
+        <li *ngIf="authService.loggedIn.userId">
+          <a (click)="onLogout()">Logout</a>
+        </li>
+        <li *ngIf="authService.loggedIn.userId">
+          <a routerLink="/adventurer/{{authService.loggedIn.userName}}" routerLinkActive="active">
+            <i class="material-icons left">account_circle</i>
+          </a>
+        </li>
+        <li *ngIf="authService.loggedIn.userId">
           <a routerLink="/settings" routerLinkActive="active">
             <i class="material-icons">settings</i>
           </a>
@@ -34,14 +42,23 @@
 
       <!-- The Side Nav -->
       <ul class="side-nav grey lighten-1" id="side-nav">
-        <li>
+        <li *ngIf="!authService.loggedIn.userId">
           <a routerLink="/login" routerLinkActive="active">Login</a>
         </li>
-        <li>
+        <li *ngIf="!authService.loggedIn.userId">
           <a routerLink="/register" routerLinkActive="active">Register</a>
         </li>
-        <li>
+        <li *ngIf="authService.loggedIn.userId">
           <a routerLink="/settings" routerLinkActive="active">Settings</a>
+        </li>
+        <li *ngIf="authService.loggedIn.userId">
+          <a (click)="onLogout()">Logout</a>
+        </li>
+        <li>
+          <a routerLink="/search" routerLinkActive="active">
+            <i class="material-icons right">search</i>
+            Campgrounds
+          </a>
         </li>
       </ul>
 

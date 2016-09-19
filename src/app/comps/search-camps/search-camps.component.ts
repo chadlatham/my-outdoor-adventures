@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators // tslint:disable-line
-} from '@angular/forms';
+import { AfterViewInit, Component, OnInit, ViewChildren } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 // Custom Services
 import { IpInfoService } from '../../srvcs/ip-info.service';
+
+// Materialize variables
+declare const $: any;
+declare const Materialize: any;
 
 @Component({
   selector: 'my-search-camps',
@@ -14,7 +14,8 @@ import { IpInfoService } from '../../srvcs/ip-info.service';
   templateUrl: './search-camps.component.html'
 })
 
-export class SearchCampsComponent implements OnInit {
+export class SearchCampsComponent implements AfterViewInit, OnInit {
+  @ViewChildren('inputCity') private vcCity: any;
   private myForm: FormGroup;
   private city: string;
   private state: string;
@@ -27,7 +28,6 @@ export class SearchCampsComponent implements OnInit {
 
   constructor(private ipInfoService: IpInfoService, private fb: FormBuilder) {
     this.myForm = fb.group({
-      // city: ['', Validators.required],
       city: [''],
       name: [''],
       radius: [''],
@@ -48,7 +48,7 @@ export class SearchCampsComponent implements OnInit {
     ];
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.ipInfoService.getInfo()
       .then((info: any) => {
         // If the ipInfoService returns a region in the US
@@ -64,7 +64,15 @@ export class SearchCampsComponent implements OnInit {
       });
   }
 
-  private onSubmit(form: any): void { // tslint:disable-line
-    console.log('you submitted value:', form); // tslint:disable-line
+  public ngAfterViewInit() {
+    window.setTimeout(() => {
+      Materialize.updateTextFields();
+    }, 100);
+
+    this.vcCity.first.nativeElement.focus();
+  }
+
+  private onSubmit(values: Object): void { // tslint:disable-line
+    console.log('form values:', values); // tslint:disable-line
   }
 }

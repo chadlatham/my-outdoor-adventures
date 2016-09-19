@@ -1,24 +1,12 @@
-import { Injectable }     from '@angular/core';
-import {
-  // Headers,
-  Http,
-  // RequestOptions,
-  Response } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class IpInfoService {
   private url: string;
-  // private headers: Headers;
-  // private options: RequestOptions;
 
   constructor(private http: Http) {
-    // this.url = 'https://crossorigin.me/https://freegeoip.net/json/'; // URL to geolocation API
-    this.url = 'https://freegeoip.net/json/';
-    // this.headers = new Headers({
-    //   'Content-Type': 'application/json',
-    //   Accept: 'application/json'
-    // });
-    // this.options = new RequestOptions({ headers: this.headers });
+    this.url = 'https://freegeoip.net/json/'; // URL to geolocation API
   }
 
   public getInfo(): Promise<any> {

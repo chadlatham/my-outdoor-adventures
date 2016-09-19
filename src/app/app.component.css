@@ -11,6 +11,10 @@
   border-bottom-right-radius: 10px;
 }
 
+.brand-logo {
+  margin-left: 10px;
+}
+
 #nav-bar {
   position: absolute;
   bottom: 0;

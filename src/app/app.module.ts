@@ -22,6 +22,7 @@ import { MaterializeDirective } from "angular2-materialize";
 import './rxjs-extensions';
 
 // My Services
+import { AuthService } from './srvcs/auth.service';
 import { IpInfoService } from './srvcs/ip-info.service';
 
 // Bootstrapped Routing Component
@@ -41,8 +42,8 @@ import { SettingsComponent } from './comps/settings/settings.component';
 // My Non-Routed Components
 import { SearchCampsComponent } from
   './comps/search-camps/search-camps.component';
-  import { SearchResultsComponent } from
-    './comps/search-results/search-results.component';
+import { SearchResultsComponent } from
+  './comps/search-results/search-results.component';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -75,6 +76,7 @@ import { SearchCampsComponent } from
     routing
   ],
   providers: [
+    AuthService,
     IpInfoService
   ],
 })

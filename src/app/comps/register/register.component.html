@@ -1,4 +1,164 @@
 <main>
-  <h1>Hello from the Register Page</h1>
-  <img src="../../../../public/images/angular.png">
+  <div class="row">
+    <div class="card-panel col s12 m8 offset-m2 l6 offset-l3">
+      <md-toolbar class="light-green darken-3 white-text">Registration: Welcome!
+      </md-toolbar>
+
+      <div class="row">
+        <form class="col s12"
+          [formGroup]="myForm"
+          (ngSubmit)="onSubmit(myForm.value)"
+        >
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <label for="firstName">First Name</label>
+              <input #inputFirstName class="brown-text lighten-2"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter your first name."
+                type="text"
+                [class.valid]="myForm.controls['firstName'].valid && myForm.controls['firstName'].dirty"
+                [class.invalid]="!myForm.controls['firstName'].valid && myForm.controls['firstName'].dirty"
+                [formControl]="myForm.controls['firstName']"
+                [(ngModel)]="firstName"
+                (keyup)="onKeyUpCapitalize()"
+              />
+              <div class="error-message"
+                *ngIf="myForm.controls['firstName'].hasError('required') && myForm.controls['firstName'].dirty">First name is required
+              </div>
+            </div>
+
+            <div class="input-field col s12 m6">
+              <label for="lastName">Last Name</label>
+              <input class="brown-text lighten-2"
+                id="lastName"
+                name="lastName"
+                placeholder="Enter your last name."
+                type="text"
+                [class.valid]="myForm.controls['lastName'].valid && myForm.controls['lastName'].dirty"
+                [class.invalid]="!myForm.controls['lastName'].valid && myForm.controls['lastName'].dirty"
+                [formControl]="myForm.controls['lastName']"
+                [(ngModel)]="lastName"
+                (keyup)="onKeyUpCapitalize()"
+              />
+              <div class="error-message"
+                *ngIf="myForm.controls['lastName'].hasError('required') && myForm.controls['lastName'].dirty">Last name is required
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <label for="email">Email</label>
+              <input class="brown-text lighten-2"
+                id="email"
+                name="email"
+                placeholder="Enter a valid email."
+                type="text"
+                [class.valid]="myForm.controls['email'].valid && myForm.controls['email'].dirty"
+                [class.invalid]="!myForm.controls['email'].valid && myForm.controls['email'].dirty"
+                [formControl]="myForm.controls['email']"
+                [(ngModel)]="email"
+                (blur)="onBlurEmail()"
+              />
+              <div class="error-message"
+                *ngIf="myForm.controls['email'].hasError('required') && myForm.controls['email'].dirty">Email address is required
+              </div>
+              <div class="error-message"
+                *ngIf="myForm.controls['email'].hasError('pattern') && myForm.controls['email'].dirty">Must enter a valid email address
+              </div>
+            </div>
+
+            <div class="input-field col s12 m6">
+              <label for="userName">User Name</label>
+              <input class="brown-text lighten-2"
+                id="userName"
+                name="userName"
+                placeholder="Enter your user name."
+                type="text"
+                [class.valid]="myForm.controls['userName'].valid && myForm.controls['userName'].dirty"
+                [class.invalid]="!myForm.controls['userName'].valid && myForm.controls['userName'].dirty"
+                [formControl]="myForm.controls['userName']"
+                [(ngModel)]="userName"
+                (keyup)="onKeyupUserName($event)"
+              />
+              <div class="error-message"
+                *ngIf="myForm.controls['userName'].hasError('required') && myForm.controls['userName'].dirty">User name is required
+              </div>
+              <div class="error-message"
+                *ngIf="myForm.controls['userName'].hasError('pattern') && myForm.controls['userName'].dirty">User name must contain only letters with no spaces
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <label for="password">Password</label>
+              <input class="brown-text lighten-2"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                type="password"
+                [class.valid]="myForm.controls['password'].valid && myForm.controls['password'].dirty"
+                [class.invalid]="!myForm.controls['password'].valid && myForm.controls['password'].dirty"
+                [formControl]="myForm.controls['password']"
+                [(ngModel)]="password"
+              />
+              <div class="error-message"
+                *ngIf="myForm.controls['password'].hasError('required') && myForm.controls['password'].dirty">Password is required
+              </div>
+              <div class="error-message"
+                *ngIf="myForm.controls['password'].hasError('minlength') && myForm.controls['password'].dirty">Password must be at least 8 characters
+              </div>
+            </div>
+
+            <div class="input-field col s12 m6">
+              <label for="confirmPassword">Confirm Password</label>
+              <input class="brown-text lighten-2"
+                id="confirmPassword"
+                name="confirmPassword"
+                pattern="{{this.password}}"
+                placeholder="Confirm your password"
+                type="password"
+                [class.valid]="myForm.controls['confirmPassword'].valid && myForm.controls['confirmPassword'].dirty"
+                [class.invalid]="!myForm.controls['confirmPassword'].valid && myForm.controls['confirmPassword'].dirty"
+                [formControl]="myForm.controls['confirmPassword']"
+                [(ngModel)]="confirmPassword"
+                (blur)="onBlurConfirmPassword()"
+              />
+              <div class="error-message"
+                *ngIf="myForm.controls['confirmPassword'].hasError('required') && myForm.controls['confirmPassword'].dirty">Password confirmation is required
+              </div>
+              <div class="error-message"
+                *ngIf="myForm.controls['confirmPassword'].hasError('minlength') && myForm.controls['confirmPassword'].dirty">Password must be at least 8 characters
+              </div>
+              <div class="error-message"
+                *ngIf="myForm.controls['confirmPassword'].hasError('pattern') && myForm.controls['confirmPassword'].dirty">Passwords must match
+              </div>
+            </div>
+          </div>
+
+          <div class="row btn-row">
+            <div class="col s12">
+              <button class="btn btn-default light-green darken-3 white-text left"
+                type="submit"
+                [disabled]="!myForm.valid"
+              >
+                <i class="material-icons left">send</i>
+                Register
+              </button>
+
+              <button class="btn btn-default light-green darken-3 white-text right"
+                (click)="onCancel($event)"
+              >
+                <i class="material-icons left">cancel</i>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
 </main>

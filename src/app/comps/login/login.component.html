@@ -1,4 +1,67 @@
 <main>
-  <h1>Hello from the Login Page</h1>
-  <img src="../../../../public/images/angular.png">
+  <div class="row">
+    <div class="card-panel col s12 m8 offset-m2 l6 offset-l3">
+      <md-toolbar class="light-green darken-3 white-text">Login: Welcome back!
+      </md-toolbar>
+
+      <div class="row">
+        <form class="col s12"
+          [formGroup]="myForm"
+          (ngSubmit)="onSubmit(myForm.value)"
+        >
+          <div class="input-field">
+            <label for="userName">User Name</label>
+            <input #inputUserName class="brown-text lighten-2"
+              id="userName"
+              name="userName"
+              placeholder="Please enter your user name."
+              type="text"
+              [class.valid]="myForm.controls['userName'].valid && myForm.controls['userName'].dirty"
+              [class.invalid]="!myForm.controls['userName'].valid && myForm.controls['userName'].dirty"
+              [formControl]="myForm.controls['userName']"
+              [(ngModel)]="userName"
+            />
+            <div class="error-message"
+              *ngIf="myForm.controls['userName'].hasError('required') && myForm.controls['userName'].dirty">User name is required
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label for="password">Password</label>
+            <input class="brown-text lighten-2"
+              id="password"
+              name="password"
+              placeholder="Please enter your password"
+              type="password"
+              [class.valid]="myForm.controls['password'].valid && myForm.controls['password'].dirty"
+              [class.invalid]="!myForm.controls['password'].valid && myForm.controls['password'].dirty"
+              [formControl]="myForm.controls['password']"
+              [(ngModel)]="password"
+            />
+            <div class="error-message"
+              *ngIf="myForm.controls['password'].hasError('required') && myForm.controls['password'].dirty">Password is required
+            </div>
+          </div>
+
+          <div class="row btn-row">
+            <button class="btn btn-default light-green darken-3 white-text left"
+              type="submit"
+              [disabled]="!myForm.valid"
+            >
+              <i class="material-icons left">search</i>
+              Login
+            </button>
+
+            <button class="btn btn-default light-green darken-3 white-text right"
+              (click)="onCancel($event)"
+            >
+              <i class="material-icons left">cancel</i>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
 </main>

@@ -3,7 +3,6 @@ import '../../public/css/styles.css';
 import {
   Component,
   HostListener,
-  OnInit,
   animate,
   state,
   style,
@@ -12,12 +11,10 @@ import {
 } from '@angular/core';
 
 // Router options for auth routes
-import {
-  // CanActivate,
-  Router
-  // ActivatedRouteSnapshot,
-  // RouterStateSnapshot
-} from '@angular/router';
+import { Router } from '@angular/router';
+
+// Custom Services
+import { AuthService } from './srvcs/auth.service';
 
 declare const $: any;
 declare const Materialize: any;
@@ -39,20 +36,17 @@ declare const Materialize: any;
   templateUrl: './app.component.html',
 })
 
-export class AppComponent implements OnInit { // tslint:disable-line
+export class AppComponent { // tslint:disable-line
 
   private navState: string;
   private title: string;
 
-  constructor(private router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
     this.title = 'My Outdoor Adventures';
     this.navState = 'expanded';
   }
 
   // Lifecycle Hooks
-  ngOnInit() {
-    console.log('AppComponent: ngOnInit'); // tslint:disable-line
-  }
 
   // Event Listeners
   @HostListener('window:beforeunload', ['$event'])
@@ -75,6 +69,17 @@ export class AppComponent implements OnInit { // tslint:disable-line
       }
       this.navState = 'collapsed';
     }
+  }
+
+  private onLogout() { //tslint:disable-line
+    this.authService.logout()
+      .then(() => {
+        const link = ['/search'];
+        this.router.navigate(link);
+      })
+      .catch((err) => {
+        Materialize.toast('Failed to logout', 4000, 'rounded');
+      });
   }
 
   // Private Methods

@@ -42,7 +42,10 @@ router.post('/auth', ev(val.post), (req, res, next) => {
 
       res.cookie('loggedIn', {
         userId: user.id,
-        userName: user.userName
+        userName: user.userName,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email
       }, {
         expires: expiry,
         secure: router.get('env') === 'production'

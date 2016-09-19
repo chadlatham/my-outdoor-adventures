@@ -1,16 +1,15 @@
 <div class="card-panel">
   <md-toolbar class="light-green darken-3 white-text">Find Campgrounds
   </md-toolbar>
-<!-- <input #searchBox id="search-box" (keyup)="search(searchBox.value)" /> -->
-  <div class="row">
 
+  <div class="row">
     <form class="col s12"
       [formGroup]="myForm"
       (ngSubmit)="onSubmit(myForm.value)"
     >
       <div class="input-field">
         <label for="city">City</label>
-        <input class="brown-text lighten-2"
+        <input #inputCity class="brown-text lighten-2"
           id="city"
           name="city"
           placeholder="City near your destination"
@@ -20,8 +19,9 @@
           [formControl]="myForm.controls['city']"
           [(ngModel)]="city"
         />
-        <div *ngIf="myForm.controls['city'].hasError('required') && myForm.controls['city'].touched"
-           class="error-message">City is required</div>
+        <div class="error-message"
+          *ngIf="myForm.controls['city'].hasError('required') && myForm.controls['city'].touched">City is required
+        </div>
       </div>
 
       <div class="input-field">
@@ -101,6 +101,6 @@
         </button>
       </div>
     </form>
-
   </div>
+
 </div>

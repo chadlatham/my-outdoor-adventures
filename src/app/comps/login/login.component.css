@@ -1,7 +1,9 @@
-/*main {
-  padding: 1em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-  display: block;
-}*/
+.card-panel {
+  border-radius: 5px;
+  padding: 0;
+}
+
+md-toolbar {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}

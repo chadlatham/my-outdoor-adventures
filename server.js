@@ -27,6 +27,7 @@ const cookieParser = require('cookie-parser');
 
 // Require Client Routes
 const auth = require('./routes/auth');
+const users = require('./routes/users');
 
 // Instantiate Express
 const app = express();
@@ -77,6 +78,7 @@ app.use('/api', (req, res, next) => {
 
 // Use Client Routes
 app.use('/api', auth);
+app.use('/api', users);
 
 // Page not found handler (for push-state serving of SPA)
 if (isDeveloping) {
@@ -94,6 +96,7 @@ else {
 // eslint-disable-next-line max-params
 app.use((err, _req, res, _next) => {
   if (err.status) {
+    // Joi validation errors
     return res
       .status(err.status)
       .set('Content-Type', 'application/json')
@@ -101,6 +104,7 @@ app.use((err, _req, res, _next) => {
   }
 
   if (err.output && err.output.statusCode) {
+    // Boom errors
     return res
       .status(err.output.statusCode)
       .set('Content-Type', 'text/plain')
