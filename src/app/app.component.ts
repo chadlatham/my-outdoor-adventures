@@ -3,18 +3,19 @@ import '../../public/css/styles.css';
 import {
   Component,
   HostListener,
+  OnInit,
   animate,
   state,
   style,
   transition,
   trigger
 } from '@angular/core';
-
-// Router options for auth routes
 import { Router } from '@angular/router';
 
 // Custom Services
 import { AuthService } from './srvcs/auth.service';
+import { FacilitiesService } from './srvcs/facilities.service';
+import { IpInfoService } from './srvcs/ip-info.service';
 
 declare const $: any;
 declare const Materialize: any;
@@ -36,17 +37,46 @@ declare const Materialize: any;
   templateUrl: './app.component.html',
 })
 
-export class AppComponent { // tslint:disable-line
+export class AppComponent implements OnInit { // tslint:disable-line
 
   private navState: string;
   private title: string;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(
+    private authService: AuthService,
+    private facilitiesService: FacilitiesService,
+    private ipInfoService: IpInfoService,
+    private router: Router
+  ) {
     this.title = 'My Outdoor Adventures';
     this.navState = 'expanded';
   }
 
   // Lifecycle Hooks
+  ngOnInit() { //tslint:disable-line
+    // Initialize the ipinfo and facilities data
+    this.ipInfoService.updateInfo()
+      .then(() => {
+        const info = this.ipInfoService.info;
+
+        if (this.ipInfoService.states.indexOf(info.regionCode) < 0) {
+          //tslint:disable-next-line
+          throw new Error('IP address is located outside United States. Campground data is only relevant to the US.');
+        }
+
+        const search = {
+          latitude: info.latitude,
+          limit: 20,
+          longitude: info.longitude,
+          radius: 200
+        };
+
+        return this.facilitiesService.updateFacilities(search);
+      })
+      .catch((errMsg) => {
+        Materialize.toast(errMsg, 3000, 'rounded');
+      });
+  }
 
   // Event Listeners
   @HostListener('window:beforeunload', ['$event'])

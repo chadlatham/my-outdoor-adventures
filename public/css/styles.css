@@ -88,8 +88,12 @@ main {
  /*color: #000;*/
 }
 
-ul.select-dropdown.active li:not(:first-child) span {
+ul.select-dropdown.active li span {
   color: #a1887f;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  /*color: #64b5f6;*/
 }
 
 input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {

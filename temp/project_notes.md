@@ -92,7 +92,8 @@ facility_images:
 -------------------------- API's -----------------------------------------------
 RIDB - For campground information
 Mailgun - To send verification emails for email address verification
-IPInfo - To pull default City / State from IP address
+Free Geo IP - To pull default City / State from IP address
+Google Maps GeoCoding - To convert city / state names to coordinates
 
 
 -----------------Samples from RIDB.com API -------------------------------------
@@ -268,6 +269,92 @@ axios.get('https://freegeoip.net/json')
   "longitude": -122.4473,
   "metro_code": 819
 }
+
+-------------- Google Maps Geocoding API ---------------------------------------
+api key: AIzaSyA-e0-nKyn9oYRcDvOm73zA5-CdA8P7sHw
+App name: My Outdoor Adventures
+locality - tacoma
+administrative_area - wa
+country - US
+
+https://maps.googleapis.com/maps/api/geocode/json?components=locality:tacoma|administrative_area:wa|country:US&key=AIzaSyA-e0-nKyn9oYRcDvOm73zA5-CdA8P7sHw
+
+
+{
+  "results": [
+    {
+      "address_components": [
+        {
+          "long_name": "Tacoma",
+          "short_name": "Tacoma",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Pierce County",
+          "short_name": "Pierce County",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Washington",
+          "short_name": "WA",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Tacoma, WA, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 47.3190031,
+            "lng": -122.3482139
+          },
+          "southwest": {
+            "lat": 47.166528,
+            "lng": -122.5622649
+          }
+        },
+        "location": {
+          "lat": 47.2528768,
+          "lng": -122.4442906
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 47.3190031,
+            "lng": -122.3482139
+          },
+          "southwest": {
+            "lat": 47.166528,
+            "lng": -122.5622649
+          }
+        }
+      },
+      "place_id": "ChIJZ5VlK-5UkFQRgp6w6wecIWI",
+      "types": [
+        "locality",
+        "political"
+      ]
+    }
+  ],
+  "status": "OK"
+}
+
 
 -------------- Cloudinary ------------------------------------------------------
 Image upload: https://api.cloudinary.com/v1_1/dizbvx6ti/image/upload

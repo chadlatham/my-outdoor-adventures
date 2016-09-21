@@ -28,6 +28,8 @@ const cookieParser = require('cookie-parser');
 // Require Client Routes
 const auth = require('./routes/auth');
 const users = require('./routes/users');
+const geocode = require('./routes/geocode');
+const facilities = require('./routes/facilities');
 
 // Instantiate Express
 const app = express();
@@ -79,6 +81,8 @@ app.use('/api', (req, res, next) => {
 // Use Client Routes
 app.use('/api', auth);
 app.use('/api', users);
+app.use('/api', geocode);
+app.use('/api', facilities);
 
 // Page not found handler (for push-state serving of SPA)
 if (isDeveloping) {

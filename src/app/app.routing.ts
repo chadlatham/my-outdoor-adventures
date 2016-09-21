@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   },
   {
     component: CampgroundComponent,
-    path: 'campground'
+    path: 'campground/:facilityID'
   },
   {
     component: LoginComponent,

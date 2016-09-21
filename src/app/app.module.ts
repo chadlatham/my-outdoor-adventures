@@ -1,4 +1,5 @@
 // Angular Modules
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule }    from '@angular/http';
@@ -11,8 +12,8 @@ import { MdInputModule } from '@angular2-material/input';
 import { MdToolbarModule } from '@angular2-material/toolbar';
 
 // Angular 2 Bootstrap Modules
-import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
-import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
+// import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
+// import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 // The Router Config
 import { routing } from './app.routing';
@@ -23,7 +24,12 @@ import './rxjs-extensions';
 
 // My Services
 import { AuthService } from './srvcs/auth.service';
+import { FacilitiesService } from './srvcs/facilities.service';
 import { IpInfoService } from './srvcs/ip-info.service';
+import { PersistService } from './srvcs/persist.service';
+
+// My Pipes
+import { EscapeHtmlPipe } from './pipes/escape-html.pipe';
 
 // Bootstrapped Routing Component
 import { AppComponent } from './app.component';
@@ -51,6 +57,7 @@ import { SearchResultsComponent } from
     AppComponent,
     AdventurerComponent,
     CampgroundComponent,
+    EscapeHtmlPipe,
     LoginComponent,
     MaterializeDirective,
     NewAdventureComponent,
@@ -62,22 +69,22 @@ import { SearchResultsComponent } from
     SettingsComponent
   ],
   imports: [
-    AlertModule,
     BrowserModule,
-    DatepickerModule,
+    CommonModule,
     FormsModule,
     HttpModule,
     MdButtonModule,
     MdCardModule,
     MdInputModule,
     MdToolbarModule,
-    Ng2BootstrapModule,
     ReactiveFormsModule,
     routing
   ],
   providers: [
     AuthService,
-    IpInfoService
+    FacilitiesService,
+    IpInfoService,
+    PersistService
   ],
 })
 
