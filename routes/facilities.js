@@ -19,7 +19,7 @@ const apiKeyRIDB = `apikey=${process.env.RIDB_APIKEY}`;
 
 // Get facilities (camp search)
 // { latitude, longitude, radius, query, limit, offset }
-// eslint-disable-next-line
+
 router.get('/facilities', ev(val.get), (req, res, next) => {
   let { latitude, longitude, radius, query, limit, offset } = req.query;
   const url = 'https://ridb.recreation.gov/api/v1/facilities?';
@@ -34,12 +34,7 @@ router.get('/facilities', ev(val.get), (req, res, next) => {
   radius = radius ? `&radius=${radius}` : '';
   query = query ? `&query=${query}` : '';
   limit = limit ? `&limit=${limit}` : '';
-  if (offset || offset === 0) {
-    offset = `&offset=${offset}`;
-  }
-  else {
-    offset = '';
-  }
+  offset = (offset || offset === 0) ? `&offset=${offset}` : '';
   const params1 = `${activities}${latitude}${longitude}`;
   const params2 = `${radius}${query}${limit}${offset}${full}`;
   const params = `${params1}${params2}`;
@@ -53,6 +48,25 @@ router.get('/facilities', ev(val.get), (req, res, next) => {
       });
 
       res.send(facilities);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.get('/facilities/:facilityID', ev(val.getID), (req, res, next) => {
+  const { facilityID } = req.params;
+  const url = 'https://ridb.recreation.gov/api/v1/facilities/';
+  const full = '&full';
+
+  axios.get(`${url}${facilityID}?${apiKeyRIDB}${full}`)
+    .then((facilityRes) => {
+      // Camelize but leave upper case keys alone
+      const facility = camelizeKeys(facilityRes.data, (key, convert) => {
+        return /^[A-Z0-9_]+$/.test(key) ? key : convert(key);
+      });
+
+      res.send(facility);
     })
     .catch((err) => {
       next(err);

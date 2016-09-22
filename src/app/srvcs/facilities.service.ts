@@ -62,15 +62,45 @@ export class FacilitiesService {
     return this.http.get(`${this.urlFacilities}?${query}`, this.options)
       .toPromise()
       .then(this.extractData)
-      .then((returnedFacilities) => {
-        this.facilities = returnedFacilities;
+      .then((retFacilities) => {
+        this.facilities = retFacilities;
         this.facilitiesSource.next(this.facilities);
       })
       .catch(this.handleError);
   }
 
   public getFacility(facilityID: number): Promise<any> {
-    
+    if (this.facilities.RECDATA) {
+      let foundCamp: any;
+
+      for (const facility of this.facilities.RECDATA) {
+        if (facility.facilityID === facilityID) {
+          foundCamp = facility;
+        }
+      }
+
+      if (foundCamp) {
+        return new Promise((resolve, reject) => {
+          resolve(foundCamp);
+        });
+      }
+    }
+
+    return this.http.get(`${this.urlFacilities}/${facilityID}`, this.options)
+      .toPromise()
+      .then(this.extractData)
+      .then((retFacility) => {
+        if (this.facilities.RECDATA) {
+          const newFacilities: any = Object.assign({}, this.facilities);
+
+          newFacilities.RECDATA.push(retFacility);
+          this.facilities = newFacilities;
+          this.facilitiesSource.next(this.facilities);
+        }
+
+        return retFacility;
+      })
+      .catch(this.handleError);
   }
 
   private extractData(res: Response) { //tslint:disable-line

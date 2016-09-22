@@ -1,7 +1,105 @@
-/*main {
-  padding: 1em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-  display: block;
+.card-panel {
+  border-radius: 5px;
+  padding: 0;
+  margin-top: 0;
+}
+
+.content-row {
+  margin-top: .75rem;
+}
+
+.sm-img-col {
+  padding: 0;
+}
+
+.sm-img {
+  cursor: pointer;
+  padding-bottom: .75rem;
+  transition: opacity .6s;
+}
+
+.sm-img:hover {
+  opacity: 0.7;
+}
+
+.lg-img {
+  cursor: pointer;
+  padding: 0;
+}
+
+.lg-img-title {
+  font-size: 12;
+}
+
+.card-mycontent {
+  padding: 16px;
+}
+
+.desc {
+  /*#64b5f6 blue lighten-2*/
+  font-size: 16px;
+  /*color: #64b5f6;*/
+  margin-top: 0;
+}
+
+.desc span {
+  font-size: 22px;
+}
+
+.desc i {
+  /*cursor: pointer;*/
+}
+
+/*.desc span {
+  font-size: 22px
 }*/
+
+.desc-title {
+  /*#558b2f light-green darken-3*/
+  /*#64b5f6 blue lighten-2*/
+  /*#0d47a1 blue darken-4*/
+  /*#2979ff blue accent-3*/
+  color: #558b2f;
+}
+
+md-toolbar {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  /*padding: 0 .75rem 0 .75rem;*/
+  font-size: 24px;
+}
+
+md-toolbar.lg-img-title {
+  font-size: 24px;
+}
+
+h1 {
+  margin: 0 0 7.5px 0;
+  line-height: 1;
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 0;
+  line-height: 1;
+  font-size: 1.5rem;
+}
+
+:host >>> h2 {
+  /*#2e7d32 green darken-3*/
+  /*#64b5f6 blue lighten-2*/
+  /*#558b2f light-green darken-3*/
+  color: #558b2f;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+:host >>> h4 {
+  /*#1b5e20 green darken-4*/
+  /*#64b5f6 blue lighten-2*/
+  color: #558b2f;
+  font-size: 1.2rem;
+  margin-top: .25rem;
+  margin-bottom: .5rem;
+}

@@ -2,10 +2,10 @@
 <div class="wrapper">
 
   <md-toolbar  class="light-green darken-3 white-text">
-    Search Results: <span *ngIf="count">{{count}} locations</span>
+    <span>Search Results: </span><span *ngIf="count">{{count}} locations</span>
   </md-toolbar>
 
-  <div class="card-panel result"
+  <div class="card-panel result z-depth-2"
     *ngFor="let camp of camps"
     (click)=onClickCamp(camp)
   >

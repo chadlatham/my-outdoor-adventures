@@ -34,3 +34,16 @@ module.exports.get = {
       .optional()
   }
 };
+
+module.exports.getID = {
+  options: {
+    allowUnknownParams: false
+  },
+  params: {
+    facilityID: Joi.number()
+      .label('FacilityID')
+      .integer()
+      .min(1)
+      .required()
+  }
+};

@@ -1,4 +1,93 @@
 <main>
-  <h1>Hello from the Campground Page</h1>
-  <img src="../../../../public/images/angular.png">
+  <div class="row content-row">
+
+    <div class="col s12 l4">
+      <div class="card-panel z-depth-2">
+        <md-toolbar class="light-green darken-3 white-text">
+          Camp Details
+        </md-toolbar>
+        <div class="card-mycontent">
+          <p class="desc">
+            <span class="desc-title">Name: </span>{{camp?.facilityName}}
+          </p>
+          <p class="desc" *ngIf="camp?.ORGANIZATION?.length">
+            <span class="desc-title">Organization: </span>{{camp?.ORGANIZATION[0].orgName}}
+          </p>
+          <p class="desc"
+            *ngIf="camp?.FACILITYADDRESS?.length"
+          >
+            <span class="desc-title">Address: </span>{{address}}
+          </p>
+          <p class="desc" *ngIf="camp?.facilityPhone">
+            <span class="desc-title">Phone: </span>{{camp?.facilityPhone}}
+          </p>
+          <p class="desc" *ngIf="camp?.facilityEmail">
+            <span class="desc-title">Email: </span>{{camp?.facilityEmail}}
+          </p>
+          <p class="desc" *ngIf="camp?.CAMPSITE?.length">
+            <span class="desc-title">Campsites: </span>{{camp?.CAMPSITE.length}}
+          </p>
+          <p class="desc">
+            <span class="desc-title">Map: </span>
+            <a [href]="mapUrl" target="_blank">
+              <i class="material-icons red-text">place</i>
+            </a>
+            {{camp?.facilityLatitude | round: 6}}, {{camp?.facilityLongitude| round: 6}}
+          </p>
+          <p class="desc">
+            <span class="desc-title">Directions: </span>{{camp?.facilityDirections}}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m6 l4">
+      <div class="card-panel z-depth-2">
+        <md-toolbar class="light-green darken-3 white-text lg-img-title">
+          {{camp?.facilityName}}
+        </md-toolbar>
+        <img class="lg-img col s12 materialboxed"
+          materialize="materialbox"
+          *ngIf="camp.MEDIA?.length"
+          [src]="camp.MEDIA[selectedImage].URL"
+        />
+      </div>
+    </div>
+
+    <div class="col s12 m6 l4 sm-img-col" *ngIf="camp.MEDIA?.length">
+      <img class="col s6 sm-img"
+        *ngFor="let media of camp.MEDIA; let i=index"
+        [src]="media.URL"
+        (click)="selectedImage = i"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <div class="card-panel z-depth-2">
+        <md-toolbar class="light-green darken-3 white-text">
+          Description
+        </md-toolbar>
+        <div class="card-mycontent"
+          [innerHTML]="camp.facilityDescription"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <div class="card-panel z-depth-2">
+        <md-toolbar class="light-green darken-3 white-text">
+          Adventure Reports
+        </md-toolbar>
+        <div class="card-mycontent">
+          Dynamic Content
+        </div>
+      </div>
+    </div>
+  </div>
+
 </main>

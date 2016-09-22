@@ -30,6 +30,7 @@ import { PersistService } from './srvcs/persist.service';
 
 // My Pipes
 import { EscapeHtmlPipe } from './pipes/escape-html.pipe';
+import { RoundPipe } from './pipes/round.pipe';
 
 // Bootstrapped Routing Component
 import { AppComponent } from './app.component';
@@ -63,6 +64,7 @@ import { SearchResultsComponent } from
     NewAdventureComponent,
     NotFoundComponent,
     RegisterComponent,
+    RoundPipe,
     SearchComponent,
     SearchCampsComponent,
     SearchResultsComponent,
