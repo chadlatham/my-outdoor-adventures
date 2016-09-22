@@ -1,4 +1,8 @@
-<div class="navbar-fixed" [@navAnimation]="navState">
+<div class="navbar-fixed"
+  [@navAnimation]="navState"
+  (@navAnimation.start)="navAnimationStart($event)"
+  (@navAnimation.done)="navAnimationDone($event)"
+>
   <nav [@navAnimation]="navState" class="green darken-4">
     <div class="nav-wrapper">
       <a class="brand-logo white-text" routerLink="/search">{{title}}</a>

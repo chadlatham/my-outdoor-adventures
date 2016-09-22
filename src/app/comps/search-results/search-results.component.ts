@@ -31,7 +31,6 @@ export class SearchResultsComponent implements OnDestroy {
         // Update the references based on subscription changes
         if (searchResults.RECDATA) {
           this.updateReferences(searchResults);
-          console.log(this.searchResults); //tslint:disable-line
         }
       });
   }

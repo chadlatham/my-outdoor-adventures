@@ -88,17 +88,31 @@ export class AppComponent implements OnInit { // tslint:disable-line
   // @HostListener('window:resize', ['$event'])
   @HostListener('window:scroll', ['$event'])
   private onScroll(event: any) { // tslint:disable-line
+    if (this.router.url !== '/search') {
+      if (this.navState === 'expanded') {
+        this.navState = 'collapsed';
+      }
+
+      return;
+    }
+
     if (event.currentTarget.scrollY === 0) {
-      this.navState = 'expanded';
+      if (this.navState === 'collapsed') {
+        this.navState = 'expanded';
+      }
     } else {
       if (this.navState === 'expanded') {
-        $('body').css('overflow', 'hidden');
-        window.setTimeout(() => {
-          $('body').css('overflow', 'initial');
-        }, 300);
+        this.navState = 'collapsed';
       }
-      this.navState = 'collapsed';
     }
+  }
+
+  private navAnimationStart() { //tslint:disable-line
+    $('body').css('overflow', 'hidden');
+  }
+
+  private navAnimationDone() { //tslint:disable-line
+    $('body').css('overflow', 'visible');
   }
 
   private onLogout() { //tslint:disable-line

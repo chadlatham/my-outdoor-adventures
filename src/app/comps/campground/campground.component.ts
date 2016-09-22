@@ -44,18 +44,12 @@ export class CampgroundComponent implements AfterViewInit, OnInit {
         .then((camp: any) => {
           this.camp = camp;
           this.updateReferences();
-          console.log(this.camp);
         })
         .catch((err) => {
           Materialize.toast('Invalid FacilityID', 3000, 'rounded');
         });
     });
   }
-
-  // Event handlers
-  // private goBack(): void {
-  //   window.history.back();
-  // }
 
   // Private methods
   private updateReferences() {

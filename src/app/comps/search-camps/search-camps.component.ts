@@ -119,7 +119,6 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
   }
 
   private persistData() {
-    console.log('persist');
     this.persistService.searchCity = this.city;
     this.persistService.searchState = this.state;
     this.persistService.searchRadius = this.radius;

@@ -40,13 +40,15 @@ export class LoginComponent implements AfterViewInit {
     window.setTimeout(() => {
       Materialize.updateTextFields();
     }, 100);
-
+    window.scrollTo(0, 1);
+    window.scrollTo(0, 0);
     this.vcUserName.first.nativeElement.focus();
   }
 
   private onCancel(event: any): void { //tslint:disable-line
     event.preventDefault();
     this.location.back();
+    // window.history.back();
   }
 
   private onSubmit(formFields: Object): void { //tslint:disable-line
