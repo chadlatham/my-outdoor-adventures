@@ -44,7 +44,7 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
       city: [''],
       name: [''],
       radius: [''],
-      sortby: [''],
+      sortby: [{ disabled: true, value: '' }],
       state: ['']
     });
     this.retrievePersistedData();

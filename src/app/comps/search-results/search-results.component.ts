@@ -1,9 +1,13 @@
+import * as _ from "lodash";
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 // Custom Services
 import { FacilitiesService } from '../../srvcs/facilities.service';
+import { PersistService } from '../../srvcs/persist.service';
+
+// declare const _: any;
 
 @Component({
   selector: 'my-search-results',
@@ -19,6 +23,7 @@ export class SearchResultsComponent implements OnDestroy {
 
   constructor(
     private facilitiesService: FacilitiesService,
+    private persistService: PersistService,
     private router: Router
   ) {
     // Create the default references from the facilities service
@@ -51,6 +56,17 @@ export class SearchResultsComponent implements OnDestroy {
   private updateReferences(facilities: any) {
     this.searchResults = facilities;
     this.count = this.searchResults.METADATA.RESULTS.TOTAL_COUNT;
-    this.camps = this.searchResults.RECDATA;
+
+    // This is a temporary solution to sort camps by name only at time of req.
+    this.processResults();
+  }
+
+  // Temp solution. Needs observable subscription to change in button status.
+  private processResults() {
+    if (this.persistService.searchSortby === 'name') {
+      this.camps = _.sortBy(this.searchResults.RECDATA, (camp: any) => {
+        return camp.facilityName;
+      });
+    }
   }
 }
