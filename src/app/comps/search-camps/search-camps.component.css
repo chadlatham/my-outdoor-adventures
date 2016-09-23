@@ -11,3 +11,41 @@ md-toolbar {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+
+.offset-arrow {
+  /*cursor: pointer;*/
+}
+
+.offset-arrow:hover {
+  /*font-size: 30px;*/
+  line-height: 100%;
+}
+
+.test {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height: 36px;
+}
+
+@media only screen and (min-width: 0) {
+  button i.search {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  button i.search {
+    display: none;
+  }
+
+  button {
+    /*font-size: 10px;*/
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  button i.search {
+    display: block;
+  }
+}

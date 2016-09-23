@@ -12,11 +12,29 @@
   padding: 0;
 }
 
+.progress {
+  /*brown lighten-2*/
+  /*color: #a1887f;*/
+  /*#bbdefb blue lighten-4*/
+  margin: 0;
+  background-color: #bbdefb;
+}
+
+.progress .indeterminate {
+  /*#558b2f light-green darken-3*/
+  background-color: #777
+}
+
 .row-result {
   /*margin-bottom: 5px;*/
   /*#eeeeee grey lighten-3*/
   /*margin-bottom: 10px;*/
   /*border-bottom: 1px solid #eeeeee;*/
+}
+
+.results {
+  /*position: fixed;
+  z-index: 1000;*/
 }
 
 .row-result:hover {

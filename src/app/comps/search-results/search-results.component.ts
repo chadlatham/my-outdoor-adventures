@@ -34,9 +34,7 @@ export class SearchResultsComponent implements OnDestroy {
     this.facilitiesSubscription = facilitiesService.facilitiesUpdated$
       .subscribe((searchResults) => {
         // Update the references based on subscription changes
-        if (searchResults.RECDATA) {
-          this.updateReferences(searchResults);
-        }
+        this.updateReferences(searchResults);
       });
   }
 
@@ -55,10 +53,16 @@ export class SearchResultsComponent implements OnDestroy {
   // Private methods
   private updateReferences(facilities: any) {
     this.searchResults = facilities;
-    this.count = this.searchResults.METADATA.RESULTS.TOTAL_COUNT;
+    if (this.searchResults.METADATA) {
+      this.count = this.searchResults.METADATA.RESULTS.TOTAL_COUNT;
+      // This is a temporary solution to sort camps by name only at time of req.
+      this.processResults();
 
-    // This is a temporary solution to sort camps by name only at time of req.
-    this.processResults();
+      return;
+    }
+
+    this.camps = [];
+    this.count = 0;
   }
 
   // Temp solution. Needs observable subscription to change in button status.

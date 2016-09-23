@@ -1,9 +1,14 @@
 <!-- <div class="card-panel brown lighten-5"> -->
 <div class="wrapper">
 
-  <md-toolbar  class="light-green darken-3 white-text">
-    <span>Search Results: </span><span *ngIf="count">{{count}} locations</span>
+  <md-toolbar  class="light-green darken-3 white-text results">
+    <span *ngIf="!persistService.searchProgress">Search Results: {{count}} campgrounds</span>
+    <span *ngIf="persistService.searchProgress">Searching...</span>
   </md-toolbar>
+
+  <div id="progress" [class.progress]="persistService.searchProgress">
+      <div class="indeterminate"></div>
+  </div>
 
   <div class="card-panel result z-depth-2"
     *ngFor="let camp of camps"

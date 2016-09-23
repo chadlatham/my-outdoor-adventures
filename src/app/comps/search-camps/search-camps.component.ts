@@ -30,8 +30,6 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
   private radius: string;
   private name: string;
   private sortby: string;
-  private limit: number;
-  private offset: number;
   private infoSubscription: Subscription;
 
   constructor(
@@ -48,8 +46,6 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
       state: ['']
     });
     this.retrievePersistedData();
-    this.limit = 20;
-    this.offset = 0;
 
     this.infoSubscription = ipInfoService.infoUpdated$.subscribe((info) => {
       if (info.city) {
@@ -76,6 +72,9 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
 
   // Event Handlers
   private onSubmit(): void { // tslint:disable-line
+    this.persistService.searchProgress = true;
+    this.facilitiesService.clearFacilities();
+    window.scrollTo(0, 0);
     const search: any = {};
 
     this.facilitiesService.getGeoCode(this.city, this.state)
@@ -93,14 +92,22 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
         if (this.name !== '') {
           search.query = this.name;
         }
-        search.limit = 20;
-        search.offset = 0;
+        search.limit = this.persistService.searchLimit;
+        search.offset = this.persistService.searchOffset;
 
         return this.facilitiesService.updateFacilities(search);
       })
+      .then(() => {
+        this.persistService.searchProgress = false;
+      })
       .catch((errMsg) => {
         Materialize.toast(errMsg, 3000, 'rounded');
+        this.persistService.searchProgress = false;
       });
+  }
+
+  private onClickOffset(offset: number) { //tslint:disable-line
+    this.persistService.searchOffset += offset;
   }
 
   private capitalize() { //tslint:disable-line
@@ -124,6 +131,7 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
     this.persistService.searchRadius = this.radius;
     this.persistService.searchName = this.name;
     this.persistService.searchSortby = this.sortby;
+    this.persistService.searchOffset = 0;
   }
 
   private retrievePersistedData() {

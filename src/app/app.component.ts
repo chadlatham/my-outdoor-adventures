@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './srvcs/auth.service';
 import { FacilitiesService } from './srvcs/facilities.service';
 import { IpInfoService } from './srvcs/ip-info.service';
+import { PersistService } from './srvcs/persist.service';
 
 declare const $: any;
 declare const Materialize: any;
@@ -46,6 +47,7 @@ export class AppComponent implements OnInit { // tslint:disable-line
     private authService: AuthService,
     private facilitiesService: FacilitiesService,
     private ipInfoService: IpInfoService,
+    private persistService: PersistService,
     private router: Router
   ) {
     this.title = 'My Outdoor Adventures';
@@ -55,6 +57,7 @@ export class AppComponent implements OnInit { // tslint:disable-line
   // Lifecycle Hooks
   ngOnInit() { //tslint:disable-line
     // Initialize the ipinfo and facilities data
+    this.persistService.searchProgress = true;
     this.ipInfoService.updateInfo()
       .then(() => {
         const info = this.ipInfoService.info;
@@ -66,14 +69,18 @@ export class AppComponent implements OnInit { // tslint:disable-line
 
         const search = {
           latitude: info.latitude,
-          limit: 20,
+          limit: this.persistService.searchLimit,
           longitude: info.longitude,
-          radius: 200
+          radius: Number.parseInt(this.persistService.searchRadius)
         };
 
         return this.facilitiesService.updateFacilities(search);
       })
-      .catch((errMsg) => {
+      .then(() => {
+        this.persistService.searchProgress = false;
+      })
+      .catch((errMsg: any) => {
+        this.persistService.searchProgress = false;
         Materialize.toast(errMsg, 3000, 'rounded');
       });
   }

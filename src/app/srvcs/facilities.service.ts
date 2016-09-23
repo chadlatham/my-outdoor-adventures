@@ -65,6 +65,7 @@ export class FacilitiesService {
       .then((retFacilities) => {
         this.facilities = retFacilities;
         this.facilitiesSource.next(this.facilities);
+        console.log(this.facilities);
       })
       .catch(this.handleError);
   }
@@ -101,6 +102,11 @@ export class FacilitiesService {
         return retFacility;
       })
       .catch(this.handleError);
+  }
+
+  public clearFacilities() {
+    this.facilities = {};
+    this.facilitiesSource.next(this.facilities);
   }
 
   private extractData(res: Response) { //tslint:disable-line

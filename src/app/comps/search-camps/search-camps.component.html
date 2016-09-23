@@ -95,13 +95,29 @@
       </div>
 
       <div class="row btn-row">
-        <button class="btn btn-default light-green darken-3 white-text"
+        <button class="btn btn-default waves-effect waves-light light-green darken-3 z-depth-2 col s4 m5"
           type="submit"
           [disabled]="!myForm.valid"
         >
-          <i class="material-icons left">search</i>
+          <i class="material-icons left search">search</i>
           Search
         </button>
+
+        <div class="col s4 offset-s4 m7">
+          <button class="btn btn-default light-green darken-3 waves-effect waves-light z-depth-2 col s3 offset-s3 m4 l2 offset-l6"
+            [disabled]="persistService.searchOffset===0"
+            (click)="onClickOffset(-persistService.searchLimit)"
+          ><
+          </button>
+          <div class="col s3 m4 l2 test">
+            50
+          </div>
+          <button class="btn btn-default light-green darken-3 waves-effect waves-light z-depth-2 col s3 m4 l2"
+            [disabled]="persistService.searchOffset + persistService.searchLimit > facilitiesService?.facilities?.METADATA?.RESULTS?.TOTAL_COUNT"
+            (click)="onClickOffset(+persistService.searchLimit)"
+          >>
+          </button>
+        </div>
       </div>
     </form>
   </div>

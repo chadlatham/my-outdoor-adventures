@@ -27,6 +27,10 @@
   padding: 0;
 }
 
+.lg-img-col {
+  padding-bottom: .75rem;
+}
+
 .lg-img-title {
   font-size: 12;
 }
