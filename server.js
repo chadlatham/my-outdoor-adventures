@@ -7,7 +7,7 @@ if (isDeveloping) {
 }
 
 // Necessary for webpack SPA developer mode
-const request = require('request-promise');
+const axios = require('axios');
 
 const express = require('express');
 const path = require('path');
@@ -87,7 +87,13 @@ app.use('/api', facilities);
 // Page not found handler (for push-state serving of SPA)
 if (isDeveloping) {
   app.use((_req, res) => {
-    request('http://localhost:3000/index.html').pipe(res);
+    axios.get('http://localhost:3000/index.html')
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
   });
 }
 else {
