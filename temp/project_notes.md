@@ -94,6 +94,7 @@ RIDB - For campground information
 Mailgun - To send verification emails for email address verification
 Free Geo IP - To pull default City / State from IP address
 Google Maps GeoCoding - To convert city / state names to coordinates
+Cloudinary - Image upload
 
 
 -----------------Samples from RIDB.com API -------------------------------------
