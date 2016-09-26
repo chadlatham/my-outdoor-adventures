@@ -11,17 +11,23 @@ export class PersistService {
   public searchScrollHeight: number;
   public searchLimit: number;
   public searchOffset: number;
-  public searchProgress: boolean;
+  public searchOffsetClicked: boolean;
+  public searchInProgress: boolean;
+  public searchChanged: boolean;
+  public navState: string;
 
   constructor() {
     this.searchCity = '';
     this.searchState = '';
-    this.searchRadius = '200';
+    this.searchRadius = '100';
     this.searchName = '';
     this.searchSortby = 'name';
     this.searchScrollHeight = 0;
     this.searchLimit = 50;
     this.searchOffset = 0;
-    this.searchProgress = false;
+    this.searchOffsetClicked = false;
+    this.searchInProgress = false;
+    this.searchChanged = false;
+    this.navState = 'expanded';
   }
 }

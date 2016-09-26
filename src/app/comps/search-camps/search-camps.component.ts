@@ -63,6 +63,7 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
     }, 100);
 
     this.vcCity.first.nativeElement.focus();
+    $('#state, #radius').on('change', 'select', this.persistForm.bind(this));
   }
 
   public ngOnDestroy() {
@@ -72,7 +73,12 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
 
   // Event Handlers
   private onSubmit(): void { // tslint:disable-line
-    this.persistService.searchProgress = true;
+    this.persistService.searchInProgress = true;
+    this.persistService.searchChanged = false;
+    if (!this.persistService.searchOffsetClicked) {
+      this.persistService.searchOffset = 0;
+    }
+
     this.facilitiesService.clearFacilities();
     window.scrollTo(0, 0);
     const search: any = {};
@@ -98,16 +104,24 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
         return this.facilitiesService.updateFacilities(search);
       })
       .then(() => {
-        this.persistService.searchProgress = false;
+        this.persistService.searchInProgress = false;
+        this.persistService.searchOffsetClicked = false;
       })
       .catch((errMsg) => {
         Materialize.toast(errMsg, 3000, 'rounded');
-        this.persistService.searchProgress = false;
+        this.persistService.searchInProgress = false;
+        this.persistService.searchOffsetClicked = false;
       });
   }
 
   private onClickOffset(offset: number) { //tslint:disable-line
+    this.persistService.searchOffsetClicked = true;
     this.persistService.searchOffset += offset;
+  }
+
+  private persistForm() { //tslint:disable-line
+    this.persistService.searchChanged = true;
+    this.persistData();
   }
 
   private capitalize() { //tslint:disable-line

@@ -1,9 +1,9 @@
 <div class="navbar-fixed"
-  [@navAnimation]="navState"
+  [@navAnimation]="persistService.navState"
   (@navAnimation.start)="navAnimationStart($event)"
   (@navAnimation.done)="navAnimationDone($event)"
 >
-  <nav [@navAnimation]="navState" class="green darken-4">
+  <nav [@navAnimation]="persistService.navState" class="green darken-4">
     <div class="nav-wrapper">
       <a class="brand-logo white-text" routerLink="/search">{{title}}</a>
       <a data-activates="side-nav" class="button-collapse" materialize="sideNav" [materializeParams]="[{

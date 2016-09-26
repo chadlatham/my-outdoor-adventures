@@ -35,7 +35,7 @@
             {{camp?.facilityLatitude | round: 6}}, {{camp?.facilityLongitude| round: 6}}
           </p>
           <p class="desc">
-            <span class="desc-title">Directions: </span>{{camp?.facilityDirections}}
+            <span class="desc-title">Directions: </span><span [innerHTML]="getDirections()"></span>
           </p>
         </div>
       </div>
@@ -52,6 +52,10 @@
           [src]="camp.MEDIA[selectedImage].URL | httpsUrl"
         />
       </div>
+      <button class="btn btn-default light-green darken-3 waves-effect waves-light z-depth-2 hide-on-small-only back-button"
+      (click)="onClickGoBack()"
+      >Back
+      </button>
     </div>
 
     <div class="col s12 m6 l4 sm-img-col" *ngIf="camp.MEDIA?.length">

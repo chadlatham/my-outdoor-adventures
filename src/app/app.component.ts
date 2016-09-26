@@ -30,7 +30,7 @@ declare const Materialize: any;
       state('collapsed',   style({
         height: '74px'
       })),
-      transition('expanded <=> collapsed', animate('300ms ease-out'))
+      transition('expanded <=> collapsed', animate('400ms ease-out'))
     ])
   ],
   selector: 'my-app',
@@ -40,7 +40,6 @@ declare const Materialize: any;
 
 export class AppComponent implements OnInit { // tslint:disable-line
 
-  private navState: string;
   private title: string;
 
   constructor(
@@ -51,13 +50,12 @@ export class AppComponent implements OnInit { // tslint:disable-line
     private router: Router
   ) {
     this.title = 'My Outdoor Adventures';
-    this.navState = 'expanded';
   }
 
   // Lifecycle Hooks
   ngOnInit() { //tslint:disable-line
     // Initialize the ipinfo and facilities data
-    this.persistService.searchProgress = true;
+    this.persistService.searchInProgress = true;
     this.ipInfoService.updateInfo()
       .then(() => {
         const info = this.ipInfoService.info;
@@ -77,10 +75,10 @@ export class AppComponent implements OnInit { // tslint:disable-line
         return this.facilitiesService.updateFacilities(search);
       })
       .then(() => {
-        this.persistService.searchProgress = false;
+        this.persistService.searchInProgress = false;
       })
       .catch((errMsg: any) => {
-        this.persistService.searchProgress = false;
+        this.persistService.searchInProgress = false;
         Materialize.toast(errMsg, 3000, 'rounded');
       });
   }
@@ -96,20 +94,20 @@ export class AppComponent implements OnInit { // tslint:disable-line
   @HostListener('window:scroll', ['$event'])
   private onScroll(event: any) { // tslint:disable-line
     if (this.router.url !== '/search') {
-      if (this.navState === 'expanded') {
-        this.navState = 'collapsed';
+      if (this.persistService.navState === 'expanded') {
+        this.persistService.navState = 'collapsed';
       }
 
       return;
     }
 
     if (event.currentTarget.scrollY === 0) {
-      if (this.navState === 'collapsed') {
-        this.navState = 'expanded';
+      if (this.persistService.navState === 'collapsed') {
+        this.persistService.navState = 'expanded';
       }
     } else {
-      if (this.navState === 'expanded') {
-        this.navState = 'collapsed';
+      if (this.persistService.navState === 'expanded') {
+        this.persistService.navState = 'collapsed';
       }
     }
   }

@@ -32,7 +32,7 @@ const appRoutes: Routes = [
   },
   {
     component: NewAdventureComponent,
-    path: 'adventure'
+    path: 'adventure/:facilityID'
   },
   {
     component: RegisterComponent,

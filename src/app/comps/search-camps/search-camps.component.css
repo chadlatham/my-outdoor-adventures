@@ -21,7 +21,7 @@ md-toolbar {
   line-height: 100%;
 }
 
-.test {
+.offset {
   display:flex;
   justify-content:center;
   align-items:center;

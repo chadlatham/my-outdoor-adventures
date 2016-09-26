@@ -59,7 +59,8 @@ export class SettingsComponent implements AfterViewInit {
     window.setTimeout(() => {
       Materialize.updateTextFields();
     }, 100);
-
+    window.scrollTo(0, 1);
+    window.scrollTo(0, 0);
     this.vcFirstName.first.nativeElement.focus();
   }
 

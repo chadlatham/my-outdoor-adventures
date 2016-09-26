@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 // Custom Services
+import { AuthService } from '../../srvcs/auth.service';
 import { FacilitiesService } from '../../srvcs/facilities.service';
 import { PersistService } from '../../srvcs/persist.service';
 
@@ -22,6 +23,7 @@ export class SearchResultsComponent implements OnDestroy {
   private camps: Array<any>;
 
   constructor(
+    private authService: AuthService,
     private facilitiesService: FacilitiesService,
     private persistService: PersistService,
     private router: Router
@@ -47,6 +49,11 @@ export class SearchResultsComponent implements OnDestroy {
   // Event handlers
   private onClickCamp(camp: any) { //tslint:disable-line
     const link = ['/campground', camp.facilityID];
+    this.router.navigate(link);
+  }
+
+  private onClickCreate(camp: any) { //tslint:disable-line
+    const link = ['/adventure', camp.facilityID];
     this.router.navigate(link);
   }
 

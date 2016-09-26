@@ -7,7 +7,8 @@
     <form class="col s12"
       [formGroup]="myForm"
       (ngSubmit)="onSubmit()"
-      (change)="persistData()"
+      (change)="persistForm()"
+      (input)="persistForm()"
     >
       <div class="input-field">
         <label for="city">City</label>
@@ -27,7 +28,7 @@
         </div>
       </div>
 
-      <div class="input-field">
+      <div class="input-field" id="state">
         <select class="brown-text lighten-2"
           materialize="material_select"
           name="state"
@@ -43,7 +44,7 @@
         <label>State</label>
       </div>
 
-      <div class="input-field">
+      <div class="input-field" id="radius">
         <select class="brown-text lighten-2"
           materialize="material_select"
           name="radius"
@@ -105,15 +106,15 @@
 
         <div class="col s4 offset-s4 m7">
           <button class="btn btn-default light-green darken-3 waves-effect waves-light z-depth-2 col s3 offset-s3 m4 l2 offset-l6"
-            [disabled]="persistService.searchOffset===0"
+            [disabled]="persistService.searchOffset===0 || persistService.searchChanged"
             (click)="onClickOffset(-persistService.searchLimit)"
           ><
           </button>
-          <div class="col s3 m4 l2 test">
+          <div class="col s3 m4 l2 offset">
             50
           </div>
           <button class="btn btn-default light-green darken-3 waves-effect waves-light z-depth-2 col s3 m4 l2"
-            [disabled]="persistService.searchOffset + persistService.searchLimit > facilitiesService?.facilities?.METADATA?.RESULTS?.TOTAL_COUNT"
+            [disabled]="persistService.searchOffset + persistService.searchLimit > facilitiesService?.facilities?.METADATA?.RESULTS?.TOTAL_COUNT || persistService.searchChanged"
             (click)="onClickOffset(+persistService.searchLimit)"
           >>
           </button>

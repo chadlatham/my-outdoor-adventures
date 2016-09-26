@@ -33,6 +33,7 @@ export class CampgroundComponent implements AfterViewInit, OnInit {
   }
 
   public ngAfterViewInit(): void {
+    window.scrollTo(0, 1);
     window.scrollTo(0, 0);
   }
 
@@ -51,7 +52,18 @@ export class CampgroundComponent implements AfterViewInit, OnInit {
     });
   }
 
+  // Event handlers
+  private onClickGoBack() { //tslint:disable-line
+    window.history.back();
+  }
+
   // Private methods
+  private getDirections(): string { //tslint:disable-line
+    const dir = this.camp.facilityDirections;
+
+    return dir ? `<span>${dir}</span>` : '';
+  }
+
   private updateReferences() {
     if (!this.camp.FACILITYADDRESS.length) {
       this.address = '';

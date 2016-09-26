@@ -46,6 +46,14 @@
   margin-top: 0;
 }
 
+:host >>> span {
+  /*This selector goes with .desc!!!*/
+  /*#1b5e20 green darken-4*/
+  /*#64b5f6 blue lighten-2*/
+  font-size: 16px;
+  margin-top: 0;
+}
+
 .desc span {
   font-size: 22px;
 }
@@ -106,4 +114,8 @@ h2 {
   font-size: 1.2rem;
   margin-top: .75rem;
   margin-bottom: .25rem;
+}
+
+.back-button {
+  margin-top: 15px;
 }
