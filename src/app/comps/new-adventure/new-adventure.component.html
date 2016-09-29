@@ -1,5 +1,158 @@
 <main>
-  <h1>Hello from the New Adventure Page</h1>
-  <h3>{{camp.facilityName}}</h3>
-  <img src="../../../../public/images/angular.png">
+  <div class="row">
+    <div class="card-panel col s12 m10 offset-m1 l8 offset-l2">
+      <md-toolbar class="light-green darken-3 white-text">
+        Adventure to: {{camp?.facilityName}}
+      </md-toolbar>
+
+      <div class="row content">
+        <form class="col s12"
+          (ngSubmit)="onSubmit(myForm.value)"
+        >
+
+          <div class="row">
+            <div class="col s6 m5 l4">
+              <label class="brown-text text-lighten-2">First day
+                <my-date-picker
+                  [options]="dateFirstOptions"
+                  (dateChanged)="onDateChangedFirst($event)"
+                >
+                </my-date-picker>
+              </label>
+            </div>
+
+            <div class="col s6 m5 offset-m2 l4 offset-l4">
+              <label class="brown-text text-lighten-2">Last day
+                <my-date-picker
+                  [options]="dateLastOptions"
+                  (dateChanged)="onDateChangedLast($event)"
+                  *ngIf="dateFirst"
+                >
+                </my-date-picker>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <div class="row">
+              <div class="divider col s12"></div>
+            </div>
+
+            <div class="row">
+              <img class="col s5 m4 l3 img-upload"
+                src="../../../../public/images/missing.png"
+                alt="upload"
+                (click)="onClickUploadImage()"
+              />
+              <div class="col s7 m8 l9 brown-text text-lighten-2">
+                Please upload HI Quality images only - [MAX: 10MB]
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="row">
+              <div class="divider col s12"></div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea class="materialize-textarea"
+                  id="description"
+                  length="250"
+                  maxlength="250"
+                  minlength="25"
+                  required
+                  materialize="characterCounter"
+                  name="description"
+                  [class.valid]="descCtrl.valid && descCtrl.dirty"
+                  [class.my-invalid]="descCtrl.invalid && descCtrl.dirty"
+                  [formControl]="myForm.controls['description']"
+                  [(ngModel)]="description"
+                >
+                </textarea>
+                <label for="description">Description of adventure</label>
+                <div class="error-message"
+                  *ngIf="descCtrl.hasError('minlength') && descCtrl.dirty">Minimum length of 25 characters.
+                </div>
+                <div class="error-message"
+                  *ngIf="descCtrl.hasError('required') && descCtrl.dirty">Must provide a description.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <!-- <div class="row">
+              <div class="divider col s12"></div>
+            </div> -->
+
+            <div class="row">
+              <div class="col s12 radio-col">
+                <div class="brown-text text-lighten-2"
+                >
+                  Would you recommend this adventure to others?
+                </div>
+                <div class="input-field radios">
+                  <input
+                    id="rec-yes"
+                    name="recommend"
+                    type="radio"
+                    value="Yes"
+                    [formControl]="myForm.controls['recommend']"
+                    [(ngModel)]="recommend"
+                  />
+                  <label for="rec-yes">
+                    <i class="material-icons left"
+                    [class.light-green-text]="recommend==='Yes'"
+                    [class.text-darken-3]="recommend==='Yes'"
+                    >
+                      thumb_up
+                    </i>
+                  </label>
+
+                  <input
+                    id="rec-no"
+                    name="recommend"
+                    type="radio"
+                    value="No"
+                    [formControl]="myForm.controls['recommend']"
+                    [(ngModel)]="recommend"
+                  />
+                  <label for="rec-no">
+                    <i class="material-icons left"
+                      [class.red-text]="recommend==='No'"
+                      [class.text-darken-4]="recommend==='No'"
+                    >
+                      thumb_down
+                    </i>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row btn-row">
+              <div class="col s12">
+                <button class="btn btn-default light-green darken-3 white-text left"
+                  type="submit"
+                  [disabled]="disableSubmit()"
+                >
+                  <i class="material-icons left">send</i>
+                  Save
+                </button>
+
+                <button class="btn btn-default light-green darken-3 white-text right"
+                  (click)="onCancel($event)"
+                >
+                  <i class="material-icons left">cancel</i>
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
 </main>

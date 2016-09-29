@@ -19,7 +19,7 @@ exports.up = function(knex) {
       .index();
     table.timestamp('trip_from_date').notNullable();
     table.timestamp('trip_to_date').notNullable();
-    table.text('review_text').notNullable();
+    table.string('review_text').notNullable();
     table.boolean('recommend').notNullable();
   });
 };

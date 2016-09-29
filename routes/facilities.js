@@ -39,7 +39,6 @@ router.get('/facilities', ev(val.get), (req, res, next) => {
   const params2 = `${radius}${query}${limit}${offset}${full}`;
   const params = `${params1}${params2}`;
 
-  // console.log(`${url}${apiKeyRIDB}${params}`);
   axios.get(`${url}${apiKeyRIDB}${params}`)
     .then((facilitiesRes) => {
       // Camelize but leave upper case keys alone

@@ -22,7 +22,7 @@
                 [class.invalid]="!myForm.controls['firstName'].valid && myForm.controls['firstName'].dirty"
                 [formControl]="myForm.controls['firstName']"
                 [(ngModel)]="firstName"
-                (keyup)="onKeyUpCapitalize"
+                (keyup)="onKeyUpCapitalize()"
               />
               <div class="error-message"
                 *ngIf="myForm.controls['firstName'].hasError('required') && myForm.controls['firstName'].dirty">First name is required

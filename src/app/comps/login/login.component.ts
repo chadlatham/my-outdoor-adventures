@@ -1,4 +1,3 @@
-import { Location } from '@angular/common';
 import { AfterViewInit, Component, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -26,7 +25,6 @@ export class LoginComponent implements AfterViewInit {
     private authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
-    private location: Location
   ) {
     this.myForm = fb.group({
       password: ['', Validators.required],
@@ -47,8 +45,7 @@ export class LoginComponent implements AfterViewInit {
 
   private onCancel(event: any): void { //tslint:disable-line
     event.preventDefault();
-    this.location.back();
-    // window.history.back();
+    window.history.back();
   }
 
   private onSubmit(formFields: Object): void { //tslint:disable-line

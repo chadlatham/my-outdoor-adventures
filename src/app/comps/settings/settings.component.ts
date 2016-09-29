@@ -1,4 +1,3 @@
-import { Location } from '@angular/common';
 import { AfterViewInit, Component, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -32,8 +31,7 @@ export class SettingsComponent implements AfterViewInit {
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private router: Router,
-    private location: Location
+    private router: Router
   ) {
     //tslint:disable-next-line
     this.emailRegEx = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
@@ -66,7 +64,7 @@ export class SettingsComponent implements AfterViewInit {
 
   private onCancel(event: any): void { //tslint:disable-line
     event.preventDefault();
-    this.location.back();
+    window.history.back();
   }
 
   private onKeyupCalcChanges(): void { //tslint:disable-line
@@ -116,7 +114,7 @@ export class SettingsComponent implements AfterViewInit {
     this.authService.patchUser(this.updateInfo)
       .then(() => {
         Materialize.toast('Settings Updated!', 3000, 'rounded');
-        this.location.back();
+        window.history.back();
       })
       .catch((errMsg) => {
         Materialize.toast(errMsg, 3000, 'rounded');

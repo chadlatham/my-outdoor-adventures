@@ -11,16 +11,17 @@ import { MdCardModule } from '@angular2-material/card';
 import { MdInputModule } from '@angular2-material/input';
 import { MdToolbarModule } from '@angular2-material/toolbar';
 
-// Angular 2 Bootstrap Modules
-// import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
-// import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
-
 // The Router Config
 import { routing } from './app.routing';
 
+// 3rd Party Components
+// import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
+
 // 3rd Party Modules
-import { MaterializeDirective } from "angular2-materialize";
 import './rxjs-extensions';
+import { MaterializeDirective } from 'angular2-materialize';
+// import { MyDatePickerModule } from 'mydatepicker/src/my-date-picker/my-date-picker.module';
+import { MyDatePickerModule } from './modules/my-date-picker/my-date-picker.module';
 
 // My Services
 import { AuthService } from './srvcs/auth.service';
@@ -81,6 +82,7 @@ import { SearchResultsComponent } from
     MdCardModule,
     MdInputModule,
     MdToolbarModule,
+    MyDatePickerModule,
     ReactiveFormsModule,
     routing
   ],
@@ -89,7 +91,7 @@ import { SearchResultsComponent } from
     FacilitiesService,
     IpInfoService,
     PersistService
-  ],
+  ]
 })
 
 export class AppModule { }
