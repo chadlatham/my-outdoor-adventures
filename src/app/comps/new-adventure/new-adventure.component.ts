@@ -5,6 +5,7 @@ import {
   FormGroup
 } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+// import {CloudinaryImageComponent} from 'ng2-cloudinary';
 
 // Imported Services
 import { FacilitiesService } from '../../srvcs/facilities.service';

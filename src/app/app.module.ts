@@ -15,12 +15,13 @@ import { MdToolbarModule } from '@angular2-material/toolbar';
 import { routing } from './app.routing';
 
 // 3rd Party Components
-// import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
+
 
 // 3rd Party Modules
 import './rxjs-extensions';
 import { MaterializeDirective } from 'angular2-materialize';
-// import { MyDatePickerModule } from 'mydatepicker/src/my-date-picker/my-date-picker.module';
+// import { CloudinaryImageComponent } from 'ng2-cloudinary/src/cloudinary-image.component.d';
+import { CloudinaryOptions, CloudinaryUploader } from 'ng2-cloudinary';
 import { MyDatePickerModule } from './modules/my-date-picker/my-date-picker.module';
 
 // My Services
@@ -60,6 +61,7 @@ import { SearchResultsComponent } from
     AppComponent,
     AdventurerComponent,
     CampgroundComponent,
+    // CloudinaryImageComponent,
     EscapeHtmlPipe,
     HttpsUrlPipe,
     LoginComponent,
