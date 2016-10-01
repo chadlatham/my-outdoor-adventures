@@ -28,9 +28,9 @@ export class FacilitiesService {
       Accept: 'application/json'
     });
     this.options = new RequestOptions({ headers: this.headers });
-    this.facilities = {};
 
     // Instantiate the facilities observable and pass it an empty object
+    this.facilities = {};
     this.facilitiesSource = new Subject<any>();
     this.facilitiesUpdated$ = this.facilitiesSource.asObservable();
     this.facilitiesSource.next(this.facilities);
@@ -65,7 +65,7 @@ export class FacilitiesService {
       .then((retFacilities) => {
         this.facilities = retFacilities;
         this.facilitiesSource.next(this.facilities);
-        console.log(this.facilities);
+        console.log(this.facilities); //tslint:disable-line
       })
       .catch(this.handleError);
   }

@@ -8,8 +8,6 @@ import { AuthService } from '../../srvcs/auth.service';
 import { FacilitiesService } from '../../srvcs/facilities.service';
 import { PersistService } from '../../srvcs/persist.service';
 
-// declare const _: any;
-
 @Component({
   selector: 'my-search-results',
   styleUrls: ['./search-results.component.css'],

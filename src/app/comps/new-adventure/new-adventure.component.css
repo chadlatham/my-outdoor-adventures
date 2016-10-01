@@ -77,3 +77,12 @@ textarea.materialize-textarea.my-invalid:focus:not([readonly]) {
   /*#64b5f6 blue lighten-2*/
   background-color: #64b5f6;
 }
+
+.testing {
+  margin: 0 auto;
+}
+
+input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid, input[type=password]:focus.valid, input[type=email].valid, input[type=email]:focus.valid, input[type=url].valid {
+  border-bottom: 2px solid #4CAF50;
+  box-shadow: 0 1px 0 0 #4CAF50;
+}

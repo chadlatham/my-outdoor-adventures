@@ -21,6 +21,7 @@ exports.up = function(knex) {
     table.timestamp('trip_to_date').notNullable();
     table.string('review_text').notNullable();
     table.boolean('recommend').notNullable();
+    table.string('img_public_id').notNullable();
   });
 };
 

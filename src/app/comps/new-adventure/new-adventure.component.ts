@@ -5,10 +5,11 @@ import {
   FormGroup
 } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-// import {CloudinaryImageComponent} from 'ng2-cloudinary';
 
 // Imported Services
+import { AdventuresService } from '../../srvcs/adventures.service';
 import { FacilitiesService } from '../../srvcs/facilities.service';
+import { ImageService } from '../../srvcs/image.service';
 
 // Custom Declarations
 declare const $: any;
@@ -27,24 +28,31 @@ export class NewAdventureComponent implements AfterViewInit, OnInit {
   private dateLastOptions: any;
   private dateFirst: Date; //tslint:disable-line
   private dateLast: Date; //tslint:disable-line
-  private imageUploaded: boolean;
+  private imageSelected: boolean;
   private description: string;
   private recommend: string;
   private descCtrl: AbstractControl;
+  private image: File;
+  private imgCtrl: AbstractControl;
+  private submitProgress: boolean;
 
   constructor(
+    private adventuresService: AdventuresService,
     private facilitiesService: FacilitiesService,
     private fb: FormBuilder,
+    private imageService: ImageService,
     private route: ActivatedRoute,
     private router: Router
   ) {
     this.myForm = fb.group({
       description: [''],
+      image: [''],
       recommend: ['']
     });
     this.description = '';
     this.recommend = '';
     this.descCtrl = this.myForm.controls['description'];
+    this.imgCtrl = this.myForm.controls['image'];
     this.dateFirstOptions = {
       dateFormat: 'mm/dd/yyyy',
       disableUntil: {
@@ -69,7 +77,8 @@ export class NewAdventureComponent implements AfterViewInit, OnInit {
       sunHighlight: false,
       todayBtnTxt: 'Today'
     };
-    this.imageUploaded = false;
+    this.imageSelected = false;
+    this.submitProgress = false;
   }
 
   // Lifecycle Hooks
@@ -94,17 +103,33 @@ export class NewAdventureComponent implements AfterViewInit, OnInit {
 
   // Event Handlers
   private onSubmit(values: any): void { //tslint:disable-line
-    console.log(values); //tslint:disable-line
-    const formData = {
-      dateFirst: this.dateFirst,
-      dateLast: this.dateLast,
-      description: this.description,
-      imageUploaded: this.imageUploaded,
-      recommend: this.recommend
-    };
+    event.preventDefault();
+    this.submitProgress = true;
+    this.imageService.uploadImage(this.image)
+      .then((cloudRes: any) => {
+        console.log(cloudRes); //tslint:disable-line
+        const adv = {
+          imgPublicId: cloudRes.public_id,
+          recommend: this.recommend === 'Yes',
+          reviewText: this.description,
+          ridbFacilityId: this.camp.facilityID,
+          tripFromDate: this.dateFirst,
+          tripToDate: this.dateLast
+        };
 
-    console.log(formData); //tslint:disable-line
+        return this.adventuresService.createAdv(adv);
+      })
+      .then((newAdv: any) => {
+        this.submitProgress = false;
+        Materialize.toast('Adventure Created!', 3000, 'rounded');
+        const link = ['/adventurer', newAdv.userName];
 
+        this.router.navigate(link);
+      })
+      .catch((err: any) => {
+        this.submitProgress = false;
+        Materialize.toast(err, 3000, 'rounded');
+      });
   }
 
   private onCancel(event: any): void { //tslint:disable-line
@@ -136,8 +161,16 @@ export class NewAdventureComponent implements AfterViewInit, OnInit {
     }
   }
 
-  private onClickUploadImage() { //tslint:disable-line
-    this.imageUploaded = true;
+  private onChangeImg(event: any) { //tslint:disable-line
+    const fl = event.target.files;
+
+    if (fl.length) {
+      this.imageSelected = true;
+      this.image = fl[0];
+    } else {
+      this.imageSelected = false;
+      delete this.image;
+    }
   }
 
   // Private Methods
@@ -152,7 +185,7 @@ export class NewAdventureComponent implements AfterViewInit, OnInit {
     submit = submit && !!this.dateFirst && !!this.dateLast;
 
     // Check the uploaded image
-    submit = submit && this.imageUploaded;
+    submit = submit && this.imageSelected;
 
     // Check the validity of the description
     submit = submit && this.descCtrl.valid && this.descCtrl.dirty;

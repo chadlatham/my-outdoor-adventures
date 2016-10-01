@@ -16,17 +16,16 @@ import { routing } from './app.routing';
 
 // 3rd Party Components
 
-
 // 3rd Party Modules
+import { MyDatePickerModule } from './modules/my-date-picker/my-date-picker.module';
 import './rxjs-extensions';
 import { MaterializeDirective } from 'angular2-materialize';
-// import { CloudinaryImageComponent } from 'ng2-cloudinary/src/cloudinary-image.component.d';
-import { CloudinaryOptions, CloudinaryUploader } from 'ng2-cloudinary';
-import { MyDatePickerModule } from './modules/my-date-picker/my-date-picker.module';
 
 // My Services
+import { AdventuresService } from './srvcs/adventures.service';
 import { AuthService } from './srvcs/auth.service';
 import { FacilitiesService } from './srvcs/facilities.service';
+import { ImageService } from './srvcs/image.service';
 import { IpInfoService } from './srvcs/ip-info.service';
 import { PersistService } from './srvcs/persist.service';
 
@@ -61,7 +60,6 @@ import { SearchResultsComponent } from
     AppComponent,
     AdventurerComponent,
     CampgroundComponent,
-    // CloudinaryImageComponent,
     EscapeHtmlPipe,
     HttpsUrlPipe,
     LoginComponent,
@@ -89,8 +87,10 @@ import { SearchResultsComponent } from
     routing
   ],
   providers: [
+    AdventuresService,
     AuthService,
     FacilitiesService,
+    ImageService,
     IpInfoService,
     PersistService
   ]

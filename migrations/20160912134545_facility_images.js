@@ -17,7 +17,7 @@ exports.up = function(knex) {
       .inTable('adventures')
       .onDelete('CASCADE')
       .index();
-    table.string('image_url').notNullable();
+    table.string('public_id').notNullable();
   });
 };
 

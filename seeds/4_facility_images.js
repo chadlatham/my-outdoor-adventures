@@ -11,7 +11,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 2,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/63671.jpg'
+        public_id: '20160423_134936_t18rwz'
       }, {
         id: 2,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -19,7 +19,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 2,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/63673.jpg'
+        public_id: '20160423_140507_kh1fre'
       }, {
         id: 3,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -27,7 +27,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 2,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/63752.jpg'
+        public_id: '20160423_134836_c3gqao'
       }, {
         id: 4,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -35,7 +35,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 2,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/63786.jpg'
+        public_id: '20160423_134832_qge5kq'
       }, {
         id: 5,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -43,7 +43,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 2,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/63814.jpg'
+        public_id: '20160423_134826_fi8vuf'
       }, {
         id: 6,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -51,7 +51,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 2,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/63824.jpg'
+        public_id: '20160423_134823_s0s5fi'
       }, {
         id: 7,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -59,7 +59,7 @@ exports.seed = function(knex) {
         deleted_at: new Date('2016-09-11 00:00:00 UTC'),
         facility_id: 2,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/63824.jpg'
+        public_id: '20160423_133212_bx3ycr'
       }, {
         id: 8,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -67,7 +67,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 3,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64041.jpg'
+        public_id: '20160423_133050_n7ly72'
       }, {
         id: 9,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -75,7 +75,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 3,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64077.jpg'
+        public_id: '20160423_133045_vvt0dx'
       }, {
         id: 10,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -83,7 +83,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 3,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64083.jpg'
+        public_id: '20160423_133040_hu5ynp'
       }, {
         id: 11,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -91,7 +91,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 3,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64127.jpg'
+        public_id: '20160423_131334_l6zcfo'
       }, {
         id: 12,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -99,7 +99,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 3,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64137.jpg'
+        public_id: '20160423_125855_bxtnhi'
       }, {
         id: 13,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -107,7 +107,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 3,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64154.jpg'
+        public_id: '20160423_133046_vbf3ap'
       }, {
         id: 14,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -115,7 +115,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 4,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/63917.jpg'
+        public_id: '20160423_125840_vx9nag'
       }, {
         id: 15,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -123,7 +123,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 4,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/63918.jpg'
+        public_id: '20160423_125710_kbrzth'
       }, {
         id: 16,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -131,7 +131,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 4,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64085.jpg'
+        public_id: '20160423_123039_mf0kam'
       }, {
         id: 17,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -139,7 +139,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 4,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64113.jpg'
+        public_id: '20160423_122454_y2ivcx'
       }, {
         id: 18,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -147,7 +147,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 4,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64139.jpg'
+        public_id: '20160423_121155_cj91v3'
       }, {
         id: 19,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -155,7 +155,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 4,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64144.jpg'
+        public_id: '20160423_120507_hm3wma'
       }, {
         id: 20,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -163,7 +163,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 5,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/63939.jpg'
+        public_id: '20160423_114955_tqhgk7'
       }, {
         id: 21,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -171,7 +171,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 5,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/63952.jpg'
+        public_id: '20160423_114406_jxcmvn'
       }, {
         id: 22,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -179,7 +179,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 5,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64028.jpg'
+        public_id: '20160423_115334_xfdydw'
       }, {
         id: 23,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -187,7 +187,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 5,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64098.jpg'
+        public_id: '20160423_113934_vkbwo8'
       }, {
         id: 24,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -195,7 +195,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 5,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64133.jpg'
+        public_id: '20160423_114426_oivjd7'
       }, {
         id: 25,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
@@ -203,7 +203,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 5,
         adventure_id: null,
-        image_url: 'http://ridb.recreation.gov/images/64162.jpg'
+        public_id: '20160423_113840_taasma'
       }]);
     })
     .then(() => {

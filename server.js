@@ -30,6 +30,7 @@ const auth = require('./routes/auth');
 const users = require('./routes/users');
 const geocode = require('./routes/geocode');
 const facilities = require('./routes/facilities');
+const adventures = require('./routes/adventures');
 
 // Instantiate Express
 const app = express();
@@ -83,6 +84,7 @@ app.use('/api', auth);
 app.use('/api', users);
 app.use('/api', geocode);
 app.use('/api', facilities);
+app.use('/api', adventures);
 
 // Page not found handler (for push-state serving of SPA)
 if (isDeveloping) {

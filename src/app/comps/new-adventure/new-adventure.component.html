@@ -39,13 +39,26 @@
             </div>
 
             <div class="row">
-              <img class="col s5 m4 l3 img-upload"
-                src="../../../../public/images/missing.png"
-                alt="upload"
-                (click)="onClickUploadImage()"
-              />
-              <div class="col s7 m8 l9 brown-text text-lighten-2">
+              <div class="col s12 brown-text text-lighten-2">
                 Please upload HI Quality images only - [MAX: 10MB]
+                <div class="file-field input-field">
+                  <div class="btn btn-default light-green darken-3 white-text">
+                    <span>Image</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      name="image"
+                      [formControl]="myForm.controls['image']"
+                      (change)="onChangeImg($event)"
+                    >
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate"
+                      name="imageText"
+                      type="text"
+                    >
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -83,11 +96,22 @@
           </div>
 
           <div>
-            <!-- <div class="row">
-              <div class="divider col s12"></div>
-            </div> -->
 
-            <div class="row">
+            <div class="row center" *ngIf="submitProgress">
+              <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-green-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" *ngIf="!submitProgress">
               <div class="col s12 radio-col">
                 <div class="brown-text text-lighten-2"
                 >
