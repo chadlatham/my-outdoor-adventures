@@ -7,6 +7,7 @@ exports.up = function(knex) {
     table.timestamps(true, true);
     table.timestamp('deleted_at').nullable();
     table.integer('ridb_facility_id').unique().notNullable();
+    table.string('facility_name').notNullable();
   });
 };
 

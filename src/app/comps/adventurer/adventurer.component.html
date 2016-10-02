@@ -1,7 +1,42 @@
-<main>
-  <h1>Adventurer Profile Page</h1>
-  <h3>Page still under development.</h3>
-  <div *ngFor="let adventure of adventures">
-    <p>{{adventure.facilityId}}</p>
+<div class="row wrapper">
+  <div class="col s12 l10 offset-l1">
+    <md-toolbar  class="light-green darken-3 white-text results">
+      <span>{{userName | titleCase}}'s Adventures</span>
+    </md-toolbar>
+
+    <div class="card-panel z-depth-2 lighten-5"
+      *ngFor="let adventure of adventures"
+      (click)="onClickAdventure($event, adventure)"
+      [class.light-green]="adventure.recommend"
+      [class.red]="!adventure.recommend"
+    >
+      <div class="row row-result">
+        <div class="col s12 m6 l4 img-col">
+          <img class="col s12 materialboxed img-adv"
+            materialize="materialbox"
+            src="https://res.cloudinary.com/myoutdooradventures/image/upload/f_auto/{{adventure.imgPublicId}}"
+          />
+        </div>
+
+        <div class="col s12 m6 l8 content-col">
+          <i class="material-icons right light-green-text text-darken-3"
+            *ngIf="adventure.recommend"
+          >
+            thumb_up
+          </i>
+          <i class="material-icons right red-text text-darken-4"
+            *ngIf="!adventure.recommend"
+          >
+            thumb_down
+          </i>
+          <div><strong>Location: </strong><span class="blue-text lighten-4">{{adventure.facilityName}}</span></div>
+          <div><strong>Date: </strong>
+            <span class="blue-text lighten-4">{{adventure.tripFromDate | date:'MMM d'}} - {{adventure.tripToDate | date:shortDate}}
+            </span>
+          </div>
+          <p>{{adventure.reviewText}}</p>
+        </div>
+      </div>
+    </div>
   </div>
-</main>
+</div>

@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-  <md-toolbar  class="light-green darken-3 white-text results">
+  <md-toolbar  class="light-green darken-3 white-text">
     <span *ngIf="!persistService.searchInProgress">Search Results: <span class="search-results">(<span class="search-offset">{{persistService.searchOffset + 1}} - {{persistService.searchOffset + persistService.searchLimit}}</span>) of {{count}} campgrounds</span></span>
     <span *ngIf="persistService.searchInProgress">Searching...</span>
   </md-toolbar>
@@ -48,7 +48,6 @@
           >
             add_circle
           </i>
-        <!-- </button> -->
         <h1 class="blue-text lighten-2">{{camp.facilityName}}</h1>
         <div><strong>Adventures: </strong><span class="blue-text lighten-4">10</span></div>
         <div><strong>Most Recent Adventure: </strong><span class="blue-text lighten-4">SpringTripper</span></div>

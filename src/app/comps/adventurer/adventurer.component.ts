@@ -20,6 +20,7 @@ declare const Materialize: any;
 export class AdventurerComponent implements AfterViewInit, OnDestroy, OnInit {
   private adventuresSubscription: Subscription;
   private adventures: Array<any>;
+  private userName: string;
 
   constructor(
     private adventuresService: AdventuresService,
@@ -30,14 +31,15 @@ export class AdventurerComponent implements AfterViewInit, OnDestroy, OnInit {
     this.adventuresSubscription = this.adventuresService.adventuresUpdated$
       .subscribe((adventures: any) => {
         this.adventures = adventures;
+        console.log(this.adventures) //tslint:disable-line
       });
   }
 
   // Lifecycle Hooks
   public ngOnInit() {
     this.route.params.forEach((params: Params) => {
-      let userName = params['userName'];
-      this.adventuresService.updateAdventures(userName)
+      this.userName = params['userName'];
+      this.adventuresService.updateAdventures(this.userName)
         .catch((err) => {
           console.log(err); //tslint:disable-line
           Materialize.toast(err, 3000, 'rounded');
@@ -53,6 +55,15 @@ export class AdventurerComponent implements AfterViewInit, OnDestroy, OnInit {
   public ngOnDestroy() {
     // prevent memory leak when component destroyed
     this.adventuresSubscription.unsubscribe();
+  }
+
+  // Event Handlers
+  onClickAdventure(event: any, adventure: any) { //tslint:disable-line
+    if (event.target.nodeName === 'IMG') {
+      return;
+    }
+
+    console.log(adventure); //tslint:disable-line
   }
 
   // Private methods

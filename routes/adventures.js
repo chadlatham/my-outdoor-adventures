@@ -15,14 +15,16 @@ const { checkAuth } = require('../modules/middleware');
 router.post('/adventures', checkAuth, ev(val.post), (req, res, next) => {
   const userId = req.token.userId;
   const {
-    ridbFacilityId,
+    facilityName,
     imgPublicId,
     recommend,
     reviewText,
+    ridbFacilityId,
     tripFromDate,
     tripToDate
   } = req.body;
   let user;
+  let facility;
 
   knex('users')
     .where('id', userId)
@@ -41,20 +43,20 @@ router.post('/adventures', checkAuth, ev(val.post), (req, res, next) => {
         knex('facilities')
           .where('ridb_facility_id', ridbFacilityId)
           .first()
-          .then((facility) => {
-            if (facility) {
-              return [facility];
+          .then((facilityExists) => {
+            if (facilityExists) {
+              return [facilityExists];
             }
 
             return knex('facilities')
-              .insert(decamelizeKeys({ ridbFacilityId }), '*')
+              .insert(decamelizeKeys({ facilityName, ridbFacilityId }), '*')
               .transacting(trx);
           })
           .then((facilities) => {
-            const dbFacility = camelizeKeys(facilities[0]);
+            facility = camelizeKeys(facilities[0]);
             const adventure = {
               userId,
-              facilityId: dbFacility.id,
+              facilityId: facility.id,
               tripFromDate,
               tripToDate,
               reviewText,
@@ -72,13 +74,65 @@ router.post('/adventures', checkAuth, ev(val.post), (req, res, next) => {
     .then((newAdventures) => {
       const newAdv = camelizeKeys(newAdventures[0]);
 
-      delete newAdv.createdAt;
-      delete newAdv.updatedAt;
       delete newAdv.deletedAt;
       delete newAdv.userId;
+      delete newAdv.facilityId;
+      newAdv.ridbFacilityId = ridbFacilityId;
+      newAdv.facilityName = facility.facilityName;
       newAdv.userName = user.userName;
 
       res.send(newAdv);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.get('/adventures/:userName', (req, res, next) => {
+  const { userName } = req.params;
+  let user;
+  let adventures;
+
+  knex('users')
+    .whereNull('deleted_at')
+    .andWhere('user_name', userName)
+    .first()
+    .then((userExists) => {
+      if (!userExists) {
+        throw boom.notFound('Invalid user name!');
+      }
+
+      user = camelizeKeys(userExists);
+      const selectFields = [
+        'adventures.created_at',
+        'adventures.id',
+        'adventures.img_public_id',
+        'adventures.recommend',
+        'adventures.review_text',
+        'facilities.ridb_facility_id',
+        'facilities.facility_name',
+        'adventures.trip_from_date',
+        'adventures.trip_to_date',
+        'adventures.updated_at',
+        'users.user_name'
+      ];
+
+      return knex('adventures')
+        .whereNull('adventures.deleted_at')
+        .andWhere('user_id', user.id)
+        .join('users', 'adventures.user_id', 'users.id')
+        .join('facilities', 'adventures.facility_id', 'facilities.id')
+        .select(selectFields)
+        .orderBy('adventures.trip_from_date', 'desc');
+    })
+    .then((adventuresExists) => {
+      if (!adventuresExists) {
+        throw boom.notFound('No adventures for this user!');
+      }
+
+      adventures = camelizeKeys(adventuresExists);
+
+      res.send(adventures);
     })
     .catch((err) => {
       next(err);

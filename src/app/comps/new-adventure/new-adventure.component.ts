@@ -109,6 +109,7 @@ export class NewAdventureComponent implements AfterViewInit, OnInit {
       .then((cloudRes: any) => {
         console.log(cloudRes); //tslint:disable-line
         const adv = {
+          facilityName: this.camp.facilityName,
           imgPublicId: cloudRes.public_id,
           recommend: this.recommend === 'Yes',
           reviewText: this.description,

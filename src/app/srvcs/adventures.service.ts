@@ -35,6 +35,7 @@ export class AdventuresService {
   }
 
   public updateAdventures(userName: string): Promise<any> {
+
     return this.http.get(`${this.url}/${userName}`, this.options)
       .toPromise()
       .then(this.extractData)
@@ -60,7 +61,7 @@ export class AdventuresService {
   private handleError(error: any) {
     let errMsg: string;
 
-    if (error.text() === '') {
+    if (!error.text || error.text() === '') {
       errMsg = (error.message) ? error.message :
         error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     } else {
