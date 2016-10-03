@@ -139,3 +139,7 @@ h2 {
 .img-col {
   padding: 0;
 }
+
+.content-col {
+  padding-top: .75rem;
+}
