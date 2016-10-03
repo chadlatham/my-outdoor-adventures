@@ -4,12 +4,14 @@
       <span>{{userName | titleCase}}'s Adventures</span>
     </md-toolbar>
 
-    <div class="card-panel z-depth-2 lighten-5"
+    <div class="card-panel z-depth-2 lighten-5 welcome"
       *ngIf="!adventures?.length"
     >
-      <h1>Welcome to My Outdoor Adventures!</h1>
-      <p>Please search for a campground and record your aventure using the + symbol next to the campground.</p>
-      <p>This page will display your adventures in chronological order.</p>
+      <div class="row row-welcome">
+        <h1 class="title center-align">Welcome to<br/>My Outdoor Adventures!</h1>
+        <p class="center-align">Record an adventure using the + symbol in the campground search.</p>
+        <p class="center-align">This page will display your adventures in chronological order.</p>
+    </div>
     </div>
 
     <div class="card-panel z-depth-2 lighten-5"

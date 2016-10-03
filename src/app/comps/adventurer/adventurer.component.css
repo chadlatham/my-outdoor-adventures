@@ -13,9 +13,18 @@
   padding: 0;
 }
 
+.card-panel.welcome {
+  padding: 16px;
+}
+
 .row-result:hover {
   background-color: rgba(100, 100, 100, 0.2);
   cursor: pointer;
+}
+
+.row-welcome:last-child {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .row-result:last-child {
@@ -43,6 +52,11 @@
 md-toolbar {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+h1.title {
+  margin-top: 0;
+  font-size: 2rem;
 }
 
 /*Media Queries*/
