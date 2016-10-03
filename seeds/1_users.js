@@ -9,10 +9,10 @@ exports.seed = function(knex) {
         id: 1,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
         updated_at: new Date('2016-09-11 00:00:00 UTC'),
-        user_name: 'chadlatham',
+        user_name: 'corypedersen',
         hashed_password: '$2a$12$lALLG/qdePnPmOGx9Z/9UOj6MwFPA0YkyyRv7T8TxRGYDF8WDHyH.',
-        first_name: 'Chad',
-        last_name: 'Latham',
+        first_name: 'Cory',
+        last_name: 'Pedersen',
         email: 'chadlatham33@gmail.com',
         hashed_email: 'acc0831b7a53d9bdd52679a48229c7454f0f3358fe62c7aef98a14f2416fa14e'
       }, {
@@ -30,10 +30,10 @@ exports.seed = function(knex) {
         id: 3,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
         updated_at: new Date('2016-09-11 00:00:00 UTC'),
-        user_name: 'corypedersen',
+        user_name: 'chadlatham',
         hashed_password: '$2a$12$lALLG/qdePnPmOGx9Z/9UOj6MwFPA0YkyyRv7T8TxRGYDF8WDHyH.',
-        first_name: 'Cory',
-        last_name: 'Pedersen',
+        first_name: 'Chad',
+        last_name: 'Latham',
         email: 'corypedersen@gmail.com',
         hashed_email: '746603fdc6ad0b97922d4580e21c11769e8d5be70449c6d778a93919b8d921ea',
         email_verified_at: new Date('2016-09-11 01:00:00 UTC')
