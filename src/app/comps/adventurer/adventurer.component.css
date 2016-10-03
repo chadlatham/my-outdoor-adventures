@@ -35,6 +35,10 @@
   padding-top: .75rem;
 }
 
+.row.big-container {
+  padding-bottom: 100px;
+}
+
 /*Elements*/
 md-toolbar {
   border-top-left-radius: 5px;

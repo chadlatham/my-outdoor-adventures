@@ -126,7 +126,9 @@ export class CampgroundComponent implements AfterViewInit, OnInit {
   }
 
   private onClickAdventure(event: any, adventure: any) { //tslint:disable-line
-    if (event.target.nodeName === 'IMG') {
+    const target = event.target;
+
+    if (target.nodeName === 'IMG' || target.id === 'materialbox-overlay') {
       return;
     }
 

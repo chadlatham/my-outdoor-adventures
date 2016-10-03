@@ -60,12 +60,13 @@ export class AdventurerComponent implements AfterViewInit, OnDestroy, OnInit {
 
   // Event Handlers
   onClickAdventure(event: any, adventure: any) { //tslint:disable-line
-    if (event.target.nodeName === 'IMG') {
+    const target = event.target;
+
+    if (target.nodeName === 'IMG' || target.id === 'materialbox-overlay') {
       return;
     }
 
     const link = ['/campground', adventure.ridbFacilityId];
-
     this.router.navigate(link);
   }
 
