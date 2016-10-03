@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 // Custom Services
 import { FacilitiesService } from '../../srvcs/facilities.service';
@@ -24,7 +24,8 @@ export class CampgroundComponent implements AfterViewInit, OnInit {
 
   constructor(
     private facilitiesService: FacilitiesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.camp = {};
     this.selectedImage = 0;
@@ -129,6 +130,8 @@ export class CampgroundComponent implements AfterViewInit, OnInit {
       return;
     }
 
-    console.log(adventure); //tslint:disable-line
+    const link = ['/adventurer', adventure.userName];
+
+    this.router.navigate(link);
   }
 }
