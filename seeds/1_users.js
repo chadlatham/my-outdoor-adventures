@@ -52,14 +52,13 @@ exports.seed = function(knex) {
         id: 5,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
         updated_at: new Date('2016-09-11 00:00:00 UTC'),
-        user_name: 'deleteduser',
+        user_name: 'barbaratrapp',
         hashed_password: '$2a$12$lALLG/qdePnPmOGx9Z/9UOj6MwFPA0YkyyRv7T8TxRGYDF8WDHyH.',
         first_name: 'ThisOne',
         last_name: 'Deleted',
         email: 'deleted@gmail.com',
         hashed_email: '42073002110b168332a215e7ed3d693432315423d07ff195b963a48552bfbd93',
-        email_verified_at: new Date('2016-09-11 01:00:00 UTC'),
-        deleted_at: new Date('2016-09-11 02:00:00 UTC')
+        email_verified_at: new Date('2016-09-11 01:00:00 UTC')
       }]);
     })
     .then(() => {
