@@ -97,7 +97,6 @@
           *ngFor="let adventure of camp.ADVENTURES"
           (click)="onClickAdventure($event, adventure)"
           [class.light-green]="adventure.recommend"
-          [class.red]="!adventure.recommend"
         >
           <div class="row row-result">
             <div class="col s12 m6 l4 img-col">
