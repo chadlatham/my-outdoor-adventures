@@ -82,14 +82,54 @@
   </div>
 
   <div class="row">
-    <div class="col s12">
-      <div class="card-panel z-depth-2">
+    <div class="col s12 l10 offset-l1">
+      <div class="card-panel z-depth-2"
+        *ngIf="camp.ADVENTURES"
+      >
         <md-toolbar class="light-green darken-3 white-text">
           Adventure Reports
         </md-toolbar>
-        <div class="card-mycontent">
-          Dynamic User Content
+        <!-- <div class="card-mycontent">
+          <div *ngFor="let adventure of camp.ADVENTURES">
+            {{adventure.userName}}
+          </div>
+        </div> -->
+
+        <div class="card-panel z-depth-2 lighten-5"
+          *ngFor="let adventure of camp.ADVENTURES"
+          (click)="onClickAdventure($event, adventure)"
+          [class.light-green]="adventure.recommend"
+          [class.red]="!adventure.recommend"
+        >
+          <div class="row row-result">
+            <div class="col s12 m6 l4 img-col">
+              <img class="col s12 materialboxed img-adv"
+                materialize="materialbox"
+                src="https://res.cloudinary.com/myoutdooradventures/image/upload/f_auto/{{adventure.imgPublicId}}"
+              />
+            </div>
+
+            <div class="col s12 m6 l8 content-col">
+              <i class="material-icons right light-green-text text-darken-3"
+                *ngIf="adventure.recommend"
+              >
+                thumb_up
+              </i>
+              <i class="material-icons right red-text text-darken-4"
+                *ngIf="!adventure.recommend"
+              >
+                thumb_down
+              </i>
+              <div><strong>Location: </strong><span class="blue-text lighten-4">{{adventure.facilityName}}</span></div>
+              <div><strong>Date: </strong>
+                <span class="blue-text lighten-4">{{adventure.tripFromDate | date:'MMM d'}} - {{adventure.tripToDate | date:shortDate}}
+                </span>
+              </div>
+              <p>{{adventure.reviewText}}</p>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>

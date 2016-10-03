@@ -2,6 +2,8 @@
   border-radius: 5px;
   padding: 0;
   margin-top: 0;
+  margin: 0 0 0.5rem 0;
+  background-color: white;
 }
 
 .content-row {
@@ -118,4 +120,14 @@ h2 {
 
 .back-button {
   margin-top: 15px;
+}
+
+.row-result:hover {
+  background-color: rgba(100, 100, 100, 0.2);
+  cursor: pointer;
+}
+
+.row-result:last-child {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }

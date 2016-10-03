@@ -123,7 +123,7 @@ router.get('/adventures/:userName', (req, res, next) => {
         .join('users', 'adventures.user_id', 'users.id')
         .join('facilities', 'adventures.facility_id', 'facilities.id')
         .select(selectFields)
-        .orderBy('adventures.trip_from_date', 'desc');
+        .orderBy('adventures.trip_to_date', 'desc');
     })
     .then((adventuresExists) => {
       if (!adventuresExists) {

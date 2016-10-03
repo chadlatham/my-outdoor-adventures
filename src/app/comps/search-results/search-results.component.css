@@ -64,7 +64,11 @@ md-toolbar {
 
   p.block-with-text {
     margin-bottom: 0;
-    max-height: 128px;
+    max-height: 130px;
+  }
+
+  p.block-with-text.expand {
+    max-height: 196px;
   }
 
   .material-icons {
@@ -80,7 +84,7 @@ md-toolbar {
 
   p.block-with-text {
     margin-bottom: 0;
-    max-height: 144px;
+    max-height: 130px;
   }
 
   .material-icons {
@@ -96,7 +100,7 @@ md-toolbar {
 
   p.block-with-text {
     margin-bottom: 0;
-    max-height: 144px;
+    max-height: 130px;
   }
 
   .material-icons {

@@ -23,17 +23,36 @@
           *ngIf="!camp.MEDIA.length"
           src="../../../../public/images/missing.png"
         >
-        <div class="rating">
+        <div class="rating" *ngIf="camp.ADVENTUREDATA">
           <div class="col s12 row-fav light-green-text darken-3">
-            <i class="material-icons left">favorite</i>
-            RATING
+            Rating:
           </div>
           <div class="col s12 row-fav">
-            <i class="material-icons">star</i>
-            <i class="material-icons">star</i>
-            <i class="material-icons">star</i>
-            <i class="material-icons">star</i>
-            <i class="material-icons">star</i>
+            <i class="material-icons light-green-text darken-3"
+            *ngIf="favorite(camp, 1)"
+            >
+              star
+            </i>
+            <i class="material-icons light-green-text darken-3"
+            *ngIf="favorite(camp, 2)"
+            >
+              star
+            </i>
+            <i class="material-icons light-green-text darken-3"
+            *ngIf="favorite(camp, 3)"
+            >
+              star
+            </i>
+            <i class="material-icons light-green-text darken-3"
+            *ngIf="favorite(camp, 4)"
+            >
+              star
+            </i>
+            <i class="material-icons light-green-text darken-3"
+            *ngIf="favorite(camp, 5)"
+            >
+              star
+            </i>
           </div>
         </div>
       </div>
@@ -49,9 +68,32 @@
             add_circle
           </i>
         <h1 class="blue-text lighten-2">{{camp.facilityName}}</h1>
-        <div><strong>Adventures: </strong><span class="blue-text lighten-4">10</span></div>
-        <div><strong>Most Recent Adventure: </strong><span class="blue-text lighten-4">SpringTripper</span></div>
+        <div *ngIf="camp.ADVENTUREDATA">
+          <div>
+            <strong>Adventures: </strong>
+            <span class="blue-text lighten-4"
+            >
+              {{camp.ADVENTUREDATA.count}}
+            </span>
+          </div>
+          <div>
+            <strong>Last Adventurer: </strong>
+            <span class="blue-text lighten-4"
+              (click)="onClickAdventurer($event, camp.ADVENTUREDATA.userName)"
+            >
+              {{camp.ADVENTUREDATA.userName}}
+            </span>
+          </div>
+          <div>
+            <strong>Date: </strong>
+            <span class="blue-text lighten-4"
+            >
+              {{camp.ADVENTUREDATA.tripToDate | date}}
+            </span>
+          </div>
+        </div>
         <p class="block-with-text"
+          [class.expand]="!camp.ADVENTUREDATA"
           [innerHTML]="camp.facilityDescription">
         </p>
       </div>

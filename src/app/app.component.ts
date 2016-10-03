@@ -65,6 +65,9 @@ export class AppComponent implements OnInit { // tslint:disable-line
           throw new Error('IP address is located outside United States. Campground data is only relevant to the US.');
         }
 
+        this.persistService.searchCity = info.city;
+        this.persistService.searchState = info.regionCode;
+
         const search = {
           latitude: info.latitude,
           limit: this.persistService.searchLimit,

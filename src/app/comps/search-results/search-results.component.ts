@@ -78,4 +78,29 @@ export class SearchResultsComponent implements OnDestroy {
       });
     }
   }
+
+  private onClickAdventurer(e: any, userName: string) { //tslint:disable-line
+    e.cancelBubble = true;
+    const link = ['/adventurer', userName];
+    this.router.navigate(link);
+  }
+
+  private favorite(camp: any, n: number) { //tslint:disable-line
+    const { count, rating } = camp.ADVENTUREDATA;
+    const rate = rating / count;
+    switch (n) {
+      case 1:
+        return true;
+      case 2:
+        return rate >= -0.5;
+      case 3:
+        return rate >= 0;
+      case 4:
+        return rate >= 0.5;
+      case 5:
+        return rate >= 0.8;
+      default:
+        return false;
+    }
+  }
 }

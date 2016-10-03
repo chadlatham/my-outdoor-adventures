@@ -44,6 +44,7 @@ export class CampgroundComponent implements AfterViewInit, OnInit {
       this.facilitiesService.getFacility(facilityID)
         .then((camp: any) => {
           this.camp = camp;
+          console.log(this.camp); //tslint:disable-line
           this.updateReferences();
         })
         .catch((err) => {
@@ -121,5 +122,9 @@ export class CampgroundComponent implements AfterViewInit, OnInit {
     }
 
     return newAddress;
+  }
+
+  private onClickAdventure($event: any, adventure: any) { //tslint:disable-line
+    console.log(adventure); //tslint:disable-line
   }
 }
