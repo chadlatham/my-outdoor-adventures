@@ -107,7 +107,7 @@
         <div class="col s4 offset-s4 m7">
           <button class="btn btn-default light-green darken-3 waves-effect waves-light z-depth-2 col s3 offset-s3 m4 l2 offset-l6"
             [disabled]="persistService.searchOffset===0 || persistService.searchChanged"
-            (click)="onClickOffset(-persistService.searchLimit)"
+            (click)="onClickOffset($event, -persistService.searchLimit)"
           ><
           </button>
           <div class="col s3 m4 l2 offset">
@@ -115,7 +115,7 @@
           </div>
           <button class="btn btn-default light-green darken-3 waves-effect waves-light z-depth-2 col s3 m4 l2"
             [disabled]="persistService.searchOffset + persistService.searchLimit > facilitiesService?.facilities?.METADATA?.RESULTS?.TOTAL_COUNT || persistService.searchChanged"
-            (click)="onClickOffset(+persistService.searchLimit)"
+            (click)="onClickOffset($event, +persistService.searchLimit)"
           >>
           </button>
         </div>

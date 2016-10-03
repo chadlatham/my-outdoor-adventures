@@ -114,9 +114,11 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
       });
   }
 
-  private onClickOffset(offset: number) { //tslint:disable-line
+  private onClickOffset(event: any, offset: number) { //tslint:disable-line
+    event.preventDefault();
     this.persistService.searchOffsetClicked = true;
     this.persistService.searchOffset += offset;
+    this.onSubmit();
   }
 
   private persistForm() { //tslint:disable-line

@@ -65,7 +65,6 @@ export class FacilitiesService {
       .then((retFacilities) => {
         this.facilities = retFacilities;
         this.facilitiesSource.next(this.facilities);
-        console.log(this.facilities); //tslint:disable-line
       })
       .catch(this.handleError);
   }

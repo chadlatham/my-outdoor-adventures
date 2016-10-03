@@ -32,7 +32,6 @@ export class AdventurerComponent implements AfterViewInit, OnDestroy, OnInit {
     this.adventuresSubscription = this.adventuresService.adventuresUpdated$
       .subscribe((adventures: any) => {
         this.adventures = adventures;
-        console.log(this.adventures) //tslint:disable-line
       });
   }
 

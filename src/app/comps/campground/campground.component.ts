@@ -45,7 +45,6 @@ export class CampgroundComponent implements AfterViewInit, OnInit {
       this.facilitiesService.getFacility(facilityID)
         .then((camp: any) => {
           this.camp = camp;
-          console.log(this.camp); //tslint:disable-line
           this.updateReferences();
         })
         .catch((err) => {

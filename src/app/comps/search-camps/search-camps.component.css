@@ -5,6 +5,7 @@
 
 .sort-row {
   margin-top: 10px;
+  display: none;
 }
 
 md-toolbar {
