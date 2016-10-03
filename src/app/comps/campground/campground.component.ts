@@ -124,7 +124,11 @@ export class CampgroundComponent implements AfterViewInit, OnInit {
     return newAddress;
   }
 
-  private onClickAdventure($event: any, adventure: any) { //tslint:disable-line
+  private onClickAdventure(event: any, adventure: any) { //tslint:disable-line
+    if (event.target.nodeName === 'IMG') {
+      return;
+    }
+
     console.log(adventure); //tslint:disable-line
   }
 }
