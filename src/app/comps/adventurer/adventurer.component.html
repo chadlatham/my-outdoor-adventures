@@ -5,6 +5,14 @@
     </md-toolbar>
 
     <div class="card-panel z-depth-2 lighten-5"
+      *ngIf="!adventures?.length"
+    >
+      <h1>Welcome to My Outdoor Adventures!</h1>
+      <p>Please search for a campground and record your aventure using the + symbol next to the campground.</p>
+      <p>This page will display your adventures in chronological order.</p>
+    </div>
+
+    <div class="card-panel z-depth-2 lighten-5"
       *ngFor="let adventure of adventures"
       (click)="onClickAdventure($event, adventure)"
       [class.light-green]="adventure.recommend"
