@@ -1,6 +1,6 @@
 import * as _ from "lodash"; //tslint:disable-line
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 // Custom Services
@@ -25,7 +25,8 @@ export class AdventurerComponent implements AfterViewInit, OnDestroy, OnInit {
   constructor(
     private adventuresService: AdventuresService,
     private authService: AuthService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.adventures = [];
     this.adventuresSubscription = this.adventuresService.adventuresUpdated$
@@ -63,7 +64,9 @@ export class AdventurerComponent implements AfterViewInit, OnDestroy, OnInit {
       return;
     }
 
-    console.log(adventure); //tslint:disable-line
+    const link = ['/campground', adventure.ridbFacilityId];
+
+    this.router.navigate(link);
   }
 
   // Private methods
