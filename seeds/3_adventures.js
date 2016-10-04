@@ -15,7 +15,7 @@ exports.seed = function(knex) {
         facility_id: 2,
         trip_from_date: new Date('2016-09-11 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-15 00:00:00 UTC'),
-        review_text: 'This place really sucks!',
+        review_text: "I had a terrible time here. The bathrooms were dirty, there were children running through my campsite, and I never got a good night's sleep!",
         recommend: false,
         img_public_id: '20160423_134936_t18rwz'
       }, {
@@ -39,7 +39,7 @@ exports.seed = function(knex) {
         facility_id: 2,
         trip_from_date: new Date('2016-09-11 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-17 00:00:00 UTC'),
-        review_text: 'I love this adventure. The trees were so beautiful, and the entire campground was in good order. Nice and quiet place away from the crowds.',
+        review_text: "I love this adventure. The trees were so beautiful, and the entire campground was in good order. Nice and quiet place away from the crowds. When I go to this place again, I'm going to bring an inflatable boat with me.",
         recommend: true,
         img_public_id: '20160423_134836_c3gqao'
       }, {
@@ -51,7 +51,7 @@ exports.seed = function(knex) {
         facility_id: 2,
         trip_from_date: new Date('2016-09-17 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-21 00:00:00 UTC'),
-        review_text: 'Went back to this place, and it wasn\'t so bad... Think I\'m going to recommend it this time!',
+        review_text: "Went back to this place, and it wasn't so bad... Think I'm going to recommend it this time!",
         recommend: true,
         img_public_id: '20160423_134832_qge5kq'
       }, {
@@ -63,7 +63,7 @@ exports.seed = function(knex) {
         facility_id: 2,
         trip_from_date: new Date('2016-09-30 00:00:00 UTC'),
         trip_to_date: new Date('2016-10-02 00:00:00 UTC'),
-        review_text: 'I love this adventure. The trees were so beautiful, and the entire campground was in good order. Nice and quiet place away from the crowds.',
+        review_text: 'I loved this camping trip. Everyone I met was friendly, the campground was clean and well maintained, and it was nice and quiet.',
         recommend: true,
         img_public_id: '20160423_134826_fi8vuf'
       }, {
@@ -87,7 +87,7 @@ exports.seed = function(knex) {
         facility_id: 2,
         trip_from_date: new Date('2016-09-30 00:00:00 UTC'),
         trip_to_date: new Date('2016-10-02 00:00:00 UTC'),
-        review_text: 'Sucks! jslfjhaslkfhaslkjdhglkajdhglkjadhgljkhadgljkh lh ljh kjhljk hljk hljk ljkh',
+        review_text: "Extremely disappointing. I wouldn't send my worst enemies to those bathrooms. There was garbage flowing out of the garbage cans. No camp hosts anywhere to be found.",
         recommend: false,
         img_public_id: '20160423_133212_bx3ycr'
       }, {
@@ -108,10 +108,10 @@ exports.seed = function(knex) {
         updated_at: new Date('2016-09-22 00:00:00 UTC'),
         deleted_at: null,
         user_id: 3,
-        facility_id: 2,
+        facility_id: 6,
         trip_from_date: new Date('2016-09-21 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-23 00:00:00 UTC'),
-        review_text: 'Sucks! sdlhfiuh uhi uhoiu hou guho blhb u gouyg ouyg uoyg uiy guyg uyg  y',
+        review_text: "I don't like to complain, but we had a terrible time here. I like to explore the area when I go camping, and the trails here were all unkempt with dog messes and overgrown bushes blocking the way at every turn.",
         recommend: false,
         img_public_id: '20160423_133045_vvt0dx'
       }, {
@@ -120,10 +120,10 @@ exports.seed = function(knex) {
         updated_at: new Date('2016-09-27 00:00:00 UTC'),
         deleted_at: null,
         user_id: 3,
-        facility_id: 3,
+        facility_id: 6,
         trip_from_date: new Date('2016-09-30 00:00:00 UTC'),
         trip_to_date: new Date('2016-10-02 00:00:00 UTC'),
-        review_text: 'I love this adventure. The trees were so beautiful, and the entire campground was in good order. Nice and quiet place away from the crowds.',
+        review_text: 'This is my favorite spot to camp! The views are to die for. Even if it is a bit busy, this place has my heart.',
         recommend: true,
         img_public_id: '20160423_133040_hu5ynp'
       }, {
@@ -135,7 +135,7 @@ exports.seed = function(knex) {
         facility_id: 4,
         trip_from_date: new Date('2016-09-05 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-15 00:00:00 UTC'),
-        review_text: 'I love this adventure. The trees were so beautiful, and the entire campground was in good order. Nice and quiet place away from the crowds.',
+        review_text: "Can't wait to go back here. Best trip I have had in years.",
         recommend: true,
         img_public_id: '20160423_131334_l6zcfo'
       }, {
@@ -147,7 +147,7 @@ exports.seed = function(knex) {
         facility_id: 5,
         trip_from_date: new Date('2016-09-30 00:00:00 UTC'),
         trip_to_date: new Date('2016-10-02 00:00:00 UTC'),
-        review_text: 'Oh, it was terrible. I would never go back here.',
+        review_text: 'Oh, it was terrible. I would never go back there. If you want to be surrounded by aggressive bees and rabid possums them head for this place.',
         recommend: false,
         img_public_id: '20160423_125855_bxtnhi'
       }, {
@@ -171,7 +171,7 @@ exports.seed = function(knex) {
         facility_id: 2,
         trip_from_date: new Date('2016-09-22 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-27 00:00:00 UTC'),
-        review_text: 'I love this adventure. The trees were so beautiful, and the entire campground was in good order. Nice and quiet place away from the crowds.',
+        review_text: "Camping at Boulder Creek is a true delight. It's off the beaten path and is my home away from home. Memory of smores cooking over the fire abound.",
         recommend: true,
         img_public_id: '20160423_125840_vx9nag'
       }, {
@@ -183,7 +183,7 @@ exports.seed = function(knex) {
         facility_id: 3,
         trip_from_date: new Date('2016-09-18 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-25 00:00:00 UTC'),
-        review_text: 'Oh, it was terrible. I would never go back here.',
+        review_text: "Oh, it was terrible. I would never go back here. The neighbor's dogs smelled worse than a city dump, and no one seemed to care that they barked all night. I can get this in the city.",
         recommend: false,
         img_public_id: '20160423_125710_kbrzth'
       }, {
@@ -195,7 +195,7 @@ exports.seed = function(knex) {
         facility_id: 4,
         trip_from_date: new Date('2016-09-02 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-05 00:00:00 UTC'),
-        review_text: 'I love this adventure. The trees were so beautiful, and the entire campground was in good order. Nice and quiet place away from the crowds.',
+        review_text: 'What a treat going here. The woods smell so rich and sweet. Really gets me back to my roots.',
         recommend: true,
         img_public_id: '20160423_123039_mf0kam'
       }, {
@@ -207,7 +207,7 @@ exports.seed = function(knex) {
         facility_id: 5,
         trip_from_date: new Date('2016-09-20 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-23 00:00:00 UTC'),
-        review_text: 'Oh, it was terrible. I would never go back here.',
+        review_text: "Camping here was the worst experience I've ever had outdoors. Why people would want to pack themselves into small spaces outdoors and pretend to be homeless, I'll never know.",
         recommend: false,
         img_public_id: '20160423_122454_y2ivcx'
       }, {
@@ -219,7 +219,7 @@ exports.seed = function(knex) {
         facility_id: 1,
         trip_from_date: new Date('2016-09-28 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-28 00:00:00 UTC'),
-        review_text: 'I love this adventure. The trees were so beautiful, and the entire campground was in good order. Nice and quiet place away from the crowds.',
+        review_text: 'Things could have been better. The place was absolutely full of campers who made too much noise. The campground itself was well maintained and obviously loved. Too many people for me though.',
         recommend: true,
         img_public_id: '20160423_121155_cj91v3'
       }, {
@@ -228,10 +228,10 @@ exports.seed = function(knex) {
         updated_at: new Date('2016-09-11 00:00:00 UTC'),
         deleted_at: null,
         user_id: 3,
-        facility_id: 2,
+        facility_id: 6,
         trip_from_date: new Date('2016-09-21 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-21 00:00:00 UTC'),
-        review_text: 'Oh, it was terrible. I would never go back here.',
+        review_text: 'The campsite was filled with trash when I arrived. For $35 a night, you would think they could hire a proactive camp host.',
         recommend: false,
         img_public_id: '20160423_120507_hm3wma'
       }, {
@@ -240,10 +240,10 @@ exports.seed = function(knex) {
         updated_at: new Date('2016-09-11 00:00:00 UTC'),
         deleted_at: null,
         user_id: 2,
-        facility_id: 3,
+        facility_id: 8,
         trip_from_date: new Date('2016-09-05 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-14 00:00:00 UTC'),
-        review_text: 'I love this adventure. The trees were so beautiful, and the entire campground was in good order. Nice and quiet place away from the crowds.',
+        review_text: 'This was the best trip of the summer. The memories made here will last a lifetime.',
         recommend: true,
         img_public_id: '20160423_114955_tqhgk7'
       }, {
@@ -255,7 +255,7 @@ exports.seed = function(knex) {
         facility_id: 4,
         trip_from_date: new Date('2016-09-27 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-28 00:00:00 UTC'),
-        review_text: 'Oh, it was terrible. I would never go back here.',
+        review_text: "Campground host actually told us to keep our dog quiet! We go camping to get away from pushy neighbors and rules. Don't go here if you want to enjoy your trip.",
         recommend: false,
         img_public_id: '20160423_114406_jxcmvn'
       }, {

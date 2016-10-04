@@ -40,6 +40,27 @@ exports.seed = function(knex) {
         deleted_at: null,
         ridb_facility_id: 232074,
         facility_name: 'Money Creek Campground'
+      }, {
+        id: 6,
+        created_at: new Date('2016-09-11 00:00:00 UTC'),
+        updated_at: new Date('2016-09-11 00:00:00 UTC'),
+        deleted_at: null,
+        ridb_facility_id: 232857,
+        facility_name: 'Adams Fork Campground'
+      }, {
+        id: 7,
+        created_at: new Date('2016-09-11 00:00:00 UTC'),
+        updated_at: new Date('2016-09-11 00:00:00 UTC'),
+        deleted_at: null,
+        ridb_facility_id: 232372,
+        facility_name: 'Beaver Creek Group Camp '
+      }, {
+        id: 8,
+        created_at: new Date('2016-09-11 00:00:00 UTC'),
+        updated_at: new Date('2016-09-11 00:00:00 UTC'),
+        deleted_at: null,
+        ridb_facility_id: 232018,
+        facility_name: 'Beckler River Campground'
       }]);
     })
     .then(() => {

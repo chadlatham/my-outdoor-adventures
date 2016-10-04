@@ -9,13 +9,6 @@ const val = require('../validations/facilities');
 const axios = require('axios');
 const apiKeyRIDB = `apikey=${process.env.RIDB_APIKEY}`;
 
-// humps.camelizeKeys(obj, function (key, convert) {
-//   return /^[A-Z0-9_]+$/.test(key) ? key : convert(key);
-// });
-// humps.decamelizeKeys(obj, function (key, convert, options) {
-//   return /^[A-Z0-9_]+$/.test(key) ? key : convert(key, options);
-// });
-
 // Get facilities (camp search)
 // { latitude, longitude, radius, query, limit, offset }
 
