@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
-    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run; rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
+    "heroku-postbuild": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "knex": "knex",
     "lint": "eslint . --ext .js; tslint -c \"tslint.json\" -e \"node_modules/**/*\" -e \"typings/**/*\" \"**/*.+(ts|tsx)\"",
     "nf": "nf start",
@@ -108,6 +108,6 @@
     "webpack-hot-middleware": "^2.12.2"
   },
   "engines": {
-    "node": "6.5.0"
+    "node": "6.7.0"
   }
 }

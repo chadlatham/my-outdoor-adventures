@@ -15,7 +15,6 @@ This site works on the principle of crowd sourcing. It allows users (adventurers
 
 ##What web APIs did it use?
 - RIDB - (Recreational Information Database) For campground information.
-- Mailgun - To send verification emails for email address verification
 - Free Geo IP - To pull default city / state from IP address
 - Google Maps GeoCoding - To convert city / state names to coordinates
 - Cloudinary - Image upload
