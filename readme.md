@@ -1,7 +1,7 @@
 #My Outdoor Adventures
 An Angular 2 responsive website that provides campground search, trip stories, photo upload, and campground rating ability.
 
-###Live URL: https://my-outdoor-adventures.herokuapp.com/search
+###Live URL: http://www.my-outdoor-adventures.com
 (Slow to load - Free Heroku instance)
 
 ##What problem does My Outdoor Adventures solve?
