@@ -291,7 +291,7 @@ exports.seed = function(knex) {
         facility_id: 7,
         trip_from_date: new Date('2016-09-21 00:00:00 UTC'),
         trip_to_date: new Date('2016-09-23 00:00:00 UTC'),
-        review_text: 'Oh, it was terrible. I would never go back here.',
+        review_text: 'Oh, it was terrible. I would never go back here. The trees were all cut down in the area, and the landscape looks damaged.',
         recommend: false,
         img_public_id: '20160423_114426_oivjd7'
       }, {
