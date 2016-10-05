@@ -1,7 +1,7 @@
 <main>
   <div class="row content-row">
 
-    <div class="col s12 l4">
+    <div class="col s12 l4 desc-row">
       <div class="card-panel z-depth-2">
         <md-toolbar class="light-green darken-3 white-text">
           Camp Details
@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div class="col s12 m6 l4 lg-img-col">
+    <div class="col s12 m6 l4 lg-img-col hide-on-small-only">
       <div class="card-panel z-depth-2">
         <md-toolbar class="light-green darken-3 white-text lg-img-title">
           {{camp?.facilityName}}
@@ -57,17 +57,48 @@
       >Back
       </button>
     </div>
+    <div class="col s12 m6 l4 lg-img-col-phone hide-on-med-and-up">
+      <div class="card-panel z-depth-2">
+        <md-toolbar class="light-green darken-3 white-text lg-img-title">
+          {{camp?.facilityName}}
+        </md-toolbar>
+      </div>
+    </div>
 
-    <div class="col s12 m6 l4 sm-img-col" *ngIf="camp.MEDIA?.length">
-      <img class="col s6 sm-img"
-        *ngFor="let media of camp.MEDIA; let i=index"
-        [src]="media.URL | httpsUrl"
-        (click)="selectedImage = i"
-      />
+    <div class="col s6 m3 l2 sm-img-col" *ngIf="camp.MEDIA?.length">
+      <div *ngFor="let media of camp.MEDIA; let i=index; let e=even">
+        <img class="col s12 sm-img left-col hide-on-small-only"
+          *ngIf="e"
+          [src]="media.URL | httpsUrl"
+          (click)="selectedImage = i"
+        />
+        <img class="col s12 sm-img left-col hide-on-med-and-up materialboxed"
+          materialize="materialbox"
+          *ngIf="e"
+          [src]="media.URL | httpsUrl"
+          (click)="selectedImage = i"
+        />
+      </div>
+    </div>
+
+    <div class="col s6 m3 l2 sm-img-col" *ngIf="camp.MEDIA?.length">
+      <div *ngFor="let media of camp.MEDIA; let i=index; let o=odd">
+        <img class="col s12 sm-img right-col hide-on-small-only"
+          *ngIf="o"
+          [src]="media.URL | httpsUrl"
+          (click)="selectedImage = i"
+        />
+        <img class="col s12 sm-img right-col hide-on-med-and-up materialboxed"
+          materialize="materialbox"
+          *ngIf="o"
+          [src]="media.URL | httpsUrl"
+          (click)="selectedImage = i"
+        />
+      </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row description-row">
     <div class="col s12">
       <div class="card-panel z-depth-2">
         <md-toolbar class="light-green darken-3 white-text">

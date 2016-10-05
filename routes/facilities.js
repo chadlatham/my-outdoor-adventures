@@ -143,6 +143,7 @@ router.get('/facilities/:facilityID', ev(val.getID), (req, res, next) => {
   const url = 'https://ridb.recreation.gov/api/v1/facilities/';
   const full = '&full';
   let facility;
+  let dbFacility;
 
   axios.get(`${url}${facilityID}?${apiKeyRIDB}${full}`)
     .then((facilityRes) => {
@@ -156,10 +157,12 @@ router.get('/facilities/:facilityID', ev(val.getID), (req, res, next) => {
         .whereNull('deleted_at')
         .first();
     })
-    .then((dbFacility) => {
-      if (!dbFacility) {
+    .then((dbFac) => {
+      if (!dbFac) {
         return;
       }
+
+      dbFacility = camelizeKeys(dbFac);
 
       const advFields = [
         'created_at',
@@ -175,11 +178,35 @@ router.get('/facilities/:facilityID', ev(val.getID), (req, res, next) => {
 
       return knex('adventures')
         .select(advFields)
-        .where('facility_id', camelizeKeys(dbFacility).id)
+        .where('facility_id', dbFacility.id)
         .whereNull('deleted_at')
         .orderBy('trip_to_date', 'desc')
-        .then((dbAdventures) => {
+        .then((dbAdventures) => { //eslint-disable-line
           facility.ADVENTURES = camelizeKeys(dbAdventures);
+
+          // Compute Adventure statistics without userName
+          facility.ADVENTUREDATA = {};
+          facility.ADVENTUREDATA.count = facility.ADVENTURES.length;
+          facility.ADVENTUREDATA.facilityId = dbFacility.id;
+          facility.ADVENTUREDATA.rating = 0;
+
+          for (const adv of facility.ADVENTURES) {
+            if (!facility.ADVENTUREDATA.tripToDate) {
+              facility.ADVENTUREDATA.tripToDate = adv.tripToDate;
+              facility.ADVENTUREDATA.userId = adv.userId;
+            }
+            else if (facility.ADVENTUREDATA.tripToDate < adv.tripToDate) {
+              facility.ADVENTUREDATA.tripToDate = adv.tripToDate;
+              facility.ADVENTUREDATA.userId = adv.userId;
+            }
+
+            if (adv.recommend) {
+              facility.ADVENTUREDATA.rating += 1;
+            }
+            else {
+              facility.ADVENTUREDATA.rating -= 1;
+            }
+          }
 
           const userIds = facility.ADVENTURES.map((adv) => adv.userId);
 
@@ -197,6 +224,13 @@ router.get('/facilities/:facilityID', ev(val.getID), (req, res, next) => {
 
                 break;
               }
+            }
+          }
+
+          for (const user of users) {
+            if (user.id === facility.ADVENTUREDATA.userId) {
+              facility.ADVENTUREDATA.userName = user.userName;
+              break;
             }
           }
         });

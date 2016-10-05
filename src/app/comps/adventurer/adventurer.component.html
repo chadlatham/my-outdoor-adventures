@@ -9,8 +9,16 @@
     >
       <div class="row row-welcome">
         <h1 class="title center-align">Welcome to<br/>My Outdoor Adventures!</h1>
-        <p class="center-align">Record an adventure using the + symbol in the campground search.</p>
+        <p class="center-align">Record an adventure using the <i class="material-icons light-green-text text-darken-3 plus-icon">add_circle</i> symbol in the campground search.</p>
         <p class="center-align">This page will display your adventures in chronological order.</p>
+      </div>
+      <div class="row center">
+        <div class="btn btn-default waves-effect waves-light light-green darken-3 z-depth-2"
+          (click)="onClickSearch()"
+        >
+          <i class="material-icons left search">search</i>
+          Search
+        </div>
       </div>
     </div>
 

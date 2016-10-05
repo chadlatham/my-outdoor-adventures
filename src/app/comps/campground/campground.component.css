@@ -20,6 +20,14 @@
   transition: opacity .6s;
 }
 
+.sm-img.left-col {
+  padding-right: 0.375rem;
+}
+
+.sm-img.right-col {
+  padding-left: 0.375rem;
+}
+
 .sm-img:hover {
   opacity: 0.7;
 }
@@ -31,6 +39,14 @@
 
 .lg-img-col {
   padding-bottom: .75rem;
+}
+
+.lg-img-col-phone {
+  padding-bottom: 0;
+}
+
+.lg-img-col-phone .card-panel {
+  margin: 0;
 }
 
 .lg-img-title {
@@ -146,4 +162,22 @@ h2 {
 
 .row.big-container {
   padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 0) {
+  .content-row, .description-row {
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .desc-row, .content-row, .description-row {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .desc-row {
+    margin-bottom: 0;
+  }
 }

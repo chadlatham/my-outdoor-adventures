@@ -28,7 +28,7 @@ export class AdventurerComponent implements AfterViewInit, OnDestroy, OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.adventures = [];
+    // this.adventures = [];
     this.adventuresSubscription = this.adventuresService.adventuresUpdated$
       .subscribe((adventures: any) => {
         this.adventures = adventures;
@@ -66,6 +66,11 @@ export class AdventurerComponent implements AfterViewInit, OnDestroy, OnInit {
     }
 
     const link = ['/campground', adventure.ridbFacilityId];
+    this.router.navigate(link);
+  }
+
+  onClickSearch() { //tslint:disable-line
+    const link = ['/search'];
     this.router.navigate(link);
   }
 
