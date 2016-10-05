@@ -59,7 +59,6 @@ export class AppComponent implements OnInit { // tslint:disable-line
     this.ipInfoService.updateInfo()
       .then(() => {
         const info = this.ipInfoService.info;
-
         if (this.ipInfoService.states.indexOf(info.regionCode) < 0) {
           //tslint:disable-next-line
           throw new Error('IP address is located outside United States. Campground data is only relevant to the US.');

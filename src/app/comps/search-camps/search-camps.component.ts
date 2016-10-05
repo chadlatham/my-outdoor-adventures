@@ -48,7 +48,7 @@ export class SearchCampsComponent implements AfterViewInit, OnDestroy {
     this.retrievePersistedData();
 
     this.infoSubscription = ipInfoService.infoUpdated$.subscribe((info) => {
-      if (info.city) {
+      if (info.city || info.regionCode) {
         this.city = info.city;
         this.state = info.regionCode;
         this.persistData();
