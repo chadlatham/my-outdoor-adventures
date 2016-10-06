@@ -20,6 +20,10 @@ html {
   min-height: 150vh;
 }
 
+body {
+  /*overflow: hidden;*/
+}
+
 main {
   margin: 4px 0 0 0;
 }

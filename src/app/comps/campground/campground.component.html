@@ -6,8 +6,12 @@
         <md-toolbar class="light-green darken-3 white-text">
           Camp Details
         </md-toolbar>
-        <div class="card-mycontent">
-          <p class="desc">
+        <div class="card-mycontent"
+          *ngIf="camp"
+        >
+          <p class="desc"
+            *ngIf="camp?.facilityName"
+          >
             <span class="desc-title">Name: </span>{{camp?.facilityName}}
           </p>
           <p class="desc" *ngIf="camp?.ORGANIZATION?.length">
@@ -27,14 +31,18 @@
           <p class="desc" *ngIf="camp?.CAMPSITE?.length">
             <span class="desc-title">Campsites: </span>{{camp?.CAMPSITE.length}}
           </p>
-          <p class="desc">
+          <p class="desc"
+            *ngIf="camp?.facilityLatitude"
+          >
             <span class="desc-title">Map: </span>
             <a [href]="mapUrl" target="_blank">
               <i class="material-icons red-text">place</i>
             </a>
             {{camp?.facilityLatitude | round: 6}}, {{camp?.facilityLongitude| round: 6}}
           </p>
-          <p class="desc">
+          <p class="desc"
+            *ngIf="camp?.facilityDirections"
+          >
             <span class="desc-title">Directions: </span><span [innerHTML]="getDirections()"></span>
           </p>
         </div>

@@ -58,10 +58,16 @@ export class AppComponent implements OnInit { // tslint:disable-line
     this.persistService.searchInProgress = true;
     this.ipInfoService.updateInfo()
       .then(() => {
-        const info = this.ipInfoService.info;
+        let info = this.ipInfoService.info;
         if (this.ipInfoService.states.indexOf(info.regionCode) < 0) {
           //tslint:disable-next-line
-          throw new Error('IP address is located outside United States. Campground data is only relevant to the US.');
+          Materialize.toast('IP address is located outside United States. Campground data is only relevant to the US. Using Tacoma, Washington as the default search.', 4000, 'rounded');
+          info = {
+            city: 'Tacoma',
+            latitude: 47.2426802,
+            longitude: -122.5953236,
+            regionCode: 'WA'
+          };
         }
 
         this.persistService.searchCity = info.city;
