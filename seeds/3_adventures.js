@@ -17,7 +17,7 @@ exports.seed = function(knex) {
         trip_to_date: new Date('2016-09-15 00:00:00 UTC'),
         review_text: "I had a terrible time here. The bathrooms were dirty, there were children running through my campsite, and I never got a good night's sleep!",
         recommend: false,
-        img_public_id: '20160423_134936_t1rwz'
+        img_public_id: '20160423_113629_dyc0c5'
       }, {
         id: 2,
         created_at: new Date('2016-09-11 00:00:00 UTC'),

@@ -69,12 +69,6 @@ export class AppComponent implements OnInit { // tslint:disable-line
         if (this.ipInfoService.states.indexOf(info.regionCode) < 0) {
           //tslint:disable-next-line
           Materialize.toast('IP address is blocked or located outside United States. Campground data is only relevant to the US. Using Tacoma, Washington as the default search.', 5000, 'rounded');
-          info = {
-            city: 'Tacoma',
-            latitude: 47.2426802,
-            longitude: -122.5953236,
-            regionCode: 'WA'
-          };
         }
 
         this.persistService.searchCity = info.city;

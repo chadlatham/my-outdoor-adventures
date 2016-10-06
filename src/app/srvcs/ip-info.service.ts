@@ -74,6 +74,14 @@ export class IpInfoService {
   private handleError(error: any) {
     let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    this.info = {
+      city: 'Tacoma',
+      latitude: 47.2426802,
+      longitude: -122.5953236,
+      regionCode: 'WA'
+    };
+    this.infoSource.next(this.info);
+
     return Promise.reject(errMsg);
   }
 }
