@@ -11,7 +11,7 @@ exports.seed = function(knex) {
         deleted_at: null,
         facility_id: 2,
         adventure_id: null,
-        public_id: '20160423_134936_t18rwz'
+        public_id: '20160423_115006_xfkifx'
       }, {
         id: 2,
         created_at: new Date('2016-09-11 00:00:00 UTC'),
