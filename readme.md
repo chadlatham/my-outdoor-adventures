@@ -39,7 +39,7 @@ This site works on the principle of crowd sourcing. It allows users (adventurers
 - Github issues
 
 ##What was the most valuable piece of Customer feedback you received?
-To work on one feature at a time and make it work the way it would be expected by a user. Generating lots of content is not valuable when the content doesn't work properly make sense to a consumer.
+To work on one feature at a time and make it work the way it would be expected by a user. Generating lots of content is not valuable when the content doesn't work properly or make sense to a consumer.
 
 ##What was the biggest challenge?
 Bringing the complete development environment online with Webpack, hot module reloading, an express server, in-memory transpiling of typescript, live view testing, live linting of JS and TS, and Angular 2 module bootstrapping took quite a while to figure out. The single most troublesome characteristic was figuring out how to make Express send the index file from the in memory transpiled server instead of the file based build folder. An HTTP request was necessary to the in memory server and a piped response to the Express response object.
