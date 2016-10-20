@@ -1,5 +1,5 @@
 #My Outdoor Adventures
-An Angular 2 responsive website that provides campground search, trip stories, photo upload, and campground rating ability.
+An Angular 2 fully responsive website that provides campground search, trip stories, photo upload, and campground rating ability.
 
 ###Live URL: http://www.my-outdoor-adventures.com
 
@@ -43,3 +43,16 @@ To work on one feature at a time and make it work the way it would be expected b
 
 ##What was the biggest challenge?
 Bringing the complete development environment online with Webpack, hot module reloading, an express server, in-memory transpiling of typescript, live view testing, live linting of JS and TS, and Angular 2 module bootstrapping took quite a while to figure out. The single most troublesome characteristic was figuring out how to make Express send the index file from the in memory transpiled server instead of the file based build folder. An HTTP request was necessary to the in memory server and a piped response to the Express response object.
+
+##Images
+###Search Page Desktop View:
+![Image of Search Page Desktop View]
+(./public/images/SearchPage.jpg)
+
+###Search Page Tablet View:
+![Image of Search Page Tablet View]
+(./public/images/SearchPageTabletView.jpg)
+
+###Search Page Phone View:
+![Image of Search Page Phone View]
+(./public/images/SearchPagePhoneView.jpg)
