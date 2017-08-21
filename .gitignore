@@ -31,3 +31,6 @@ dist
 
 # Local temp files that are not relevant to the final project
 temp
+
+# Ignore the package lock file
+package-lock.json
