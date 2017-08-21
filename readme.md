@@ -1,7 +1,7 @@
 # My Outdoor Adventures
 An Angular 2 fully responsive website that provides campground search, trip stories, photo upload, and campground rating ability.
 
-### Live URL: http://www.my-outdoor-adventures.com
+### Live URL: https://www.my-outdoor-adventures.com
 
 ## What problem does My Outdoor Adventures solve?
 People trying to find fun and high-quality camping experiences in an area of interest.
