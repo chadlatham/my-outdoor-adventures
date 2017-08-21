@@ -68,7 +68,7 @@
     "lodash": "^4.16.1",
     "materialize-css": "^0.97.7",
     "morgan": "^1.7.0",
-    "mydatepicker": "0.0.32",
+    "mydatepicker": "^2.0.27",
     "ng2-cookies": "^1.0.2",
     "npm": "^3.10.7",
     "null-loader": "^0.1.1",
