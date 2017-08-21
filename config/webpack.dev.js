@@ -6,13 +6,6 @@ var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
   entry: {
-    // 'polyfills': './src/polyfills.ts',
-    // 'vendor': './src/vendor.ts',
-    // 'app': './src/main.ts'
-
-    // 'polyfills': ['./src/polyfills.ts', 'webpack/hot/dev-server',    'webpack-hot-middleware/client'],
-    // 'vendor': ['./src/vendor.ts', 'webpack/hot/dev-server',    'webpack-hot-middleware/client'],
-    // 'app': ['./src/main.ts', 'webpack/hot/dev-server',    'webpack-hot-middleware/client']
 
     'polyfills': ['./src/polyfills.ts', 'webpack-hot-middleware/client'],
     'vendor': ['./src/vendor.ts', 'webpack-hot-middleware/client'],
